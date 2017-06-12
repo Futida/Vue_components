@@ -50,7 +50,7 @@
 
       allDone: {
         get(){
-          return this.rm === 0
+         //return this.rm === 0
         },
 
         set(value){

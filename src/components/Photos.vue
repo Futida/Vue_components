@@ -25,10 +25,10 @@ export default {
   //       }
   //     }
 
-  //     this.$http.get('htpps://api.unsplash.com/photos', options)
+  //     this.$http.get('/someUrl', options)
   //   }.then(function (response) {
-  //     console.log(response)
-  //   }, console.log())
+  //     console.log(response);
+  //   }, console.log("error"))
   // },
   // created:function(){
   //   this.fetchPhotos(this.currentPage)
