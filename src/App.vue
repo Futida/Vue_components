@@ -9,7 +9,7 @@
         <router-link to="/todos">Todos</router-link>
       </li>
       <li>
-        <router-link to="/slides">Slides</router-link>
+        <router-link to="/slides">Photos</router-link>
       </li>
     </ul>
     <router-view></router-view>
