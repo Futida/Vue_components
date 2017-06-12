@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    Slides
+    Photos
   </div>
 </template>
 

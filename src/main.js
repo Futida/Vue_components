@@ -21,7 +21,7 @@ const router = new VueRouter({
     },
     {
       path: '/slides',
-      component: require('./components/Slides.vue')
+      component: require('./components/Photos.vue')
     }
   ]
 
