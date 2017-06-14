@@ -11,19 +11,19 @@ body {
   text-decoration: none;
   padding: .8em 1em calc(.8em + 3px);
   border-radius: 3px;
-  background: rgb(64, 199, 129);
-  box-shadow: 0 -3px rgb(53, 167, 110) inset;
+  background: rgb(27, 173, 247);
+  box-shadow: 0 -3px rgb(27, 173, 247) inset;
   transition: 0.2s;
   width: 550px;
 }
 
 button:hover {
-  background: rgb(53, 167, 110);
+  background: lightskyblue;
 }
 
 button:active {
-  background: rgb(33, 147, 90);
-  box-shadow: 0 3px rgb(33, 147, 90) inset;
+  background: rgb(177, 218, 239);
+  box-shadow: 0 3px rgb(202, 232, 247) inset;
 }
 
 body {
@@ -147,6 +147,12 @@ label[for='toggle-all'] {
   color: #737373;
 }
 
+.view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .todo-list {
   margin: 0;
   padding: 0;
@@ -216,8 +222,8 @@ label[for='toggle-all'] {
   text-decoration: line-through;
 }
 
-.todo-list li .destroy {
-  display: none;
+.todo-list li button .destroy {
+
   position: absolute;
   top: 0;
   right: 10px;
@@ -231,16 +237,32 @@ label[for='toggle-all'] {
   transition: color 0.2s ease-out;
 }
 
-.todo-list li .destroy:hover {
-  color: #af5b5e;
+button {
+  background-color: lightblue;
+  border-radius: 4px;
 }
 
+.deleteTask {
+  border: 1px solid rgb(91, 234, 215);
+  display: none;
+  margin-right: 1px;
+  width: 25px;
+  height: 25px;
+}
+
+
 .todo-list li .destroy:after {
+  color: coral;
+  font-size: 20px;
+  text-align: center;
+  line-height: 15px;
   content: 'x';
 }
 
 .todo-list li:hover .destroy {
   display: block;
+  box-shadow: 1px 1px 1px 1px aqua ;
+  transition: 0.2s;
 }
 
 .todo-list li .edit {
@@ -310,11 +332,11 @@ label[for='toggle-all'] {
   border-radius: 3px;
   line-height: 0.1em;
 }
+
 .filters a:hover {
   background-color: cornsilk;
   color: red;
 }
-
 
 .filters li {
   color: inherit;
@@ -340,10 +362,11 @@ html .clear-completed:active {
   text-decoration: none;
   cursor: pointer;
   position: relative;
+  color: crimson;
 }
 
 .clear-completed:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .info {
