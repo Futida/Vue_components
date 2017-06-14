@@ -20,7 +20,7 @@ const router = new VueRouter({
       component: require('./components/Todos.vue')
     },
     {
-      path: '/slides',
+      path: '/photos',
       component: require('./components/Photos.vue')
     }
   ]

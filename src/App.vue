@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <ul id="container" class="sidenav">
-
       <li>
         <router-link to="/">Home</router-link>
       </li>
@@ -9,10 +8,10 @@
         <router-link to="/todos">Todos</router-link>
       </li>
       <li>
-        <router-link to="/slides">Photos</router-link>
+        <router-link to="/photos">Photos</router-link>
       </li>
+      <router-view></router-view>
     </ul>
-    <router-view></router-view>
   </div>
 </template>
 
@@ -22,10 +21,6 @@
 
 
 <style>
-
-  .router-link-exact-active {
-    background-color: azure;
-  }
 
   body {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -53,20 +48,20 @@
   }
 
   ul.sidenav li a {
-    display: block;
     color: #000;
     padding: 8px 16px;
     text-decoration: none;
+    display: block;
   }
 
-  /*ul.sidenav li a.active {*/
-  /*background-color: #4CAF50;*/
-  /*color: white;*/
-  /*}*/
+  ul.sidenav li a.active {
+  background-color: #4CAF50;
+  color: white;
+  }
 
   ul.sidenav li a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+    background-color: cornsilk ;
+    color: brown;
   }
 
   div.content {
@@ -99,5 +94,7 @@
     }
   }
 
-
+  .router-link-exact-active {
+    background-color: azure;
+  }
 </style>
