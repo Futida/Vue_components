@@ -26,25 +26,7 @@
 </template>
 
 <script>
-  export default{
-    data(){
-      return {
-        customers: []
-      }
-    },
-    methods: {
-      fetchCustomers(){
-        Vue.$http.get('http://slimapp/api/customers')
-          .then(function(response) {
-            this.customers = JSON.parse(response.body)
-          })
-      }
-    },
-    created: function() {
-      this.fetchCustomers();
-    }
 
-  }
 </script>
 
 

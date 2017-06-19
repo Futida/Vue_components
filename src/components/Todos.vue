@@ -13,7 +13,7 @@
           <div class="view">
             <input type="checkbox" v-model="todo.complete" class="toggle">
             <label @dblclick="editTodo(todo)">{{ todo.name }}</label>
-            <button class="deleteTask destroy" @click="deleteTodo(todo)"></button>
+            <button class="destroy" @click="deleteTodo(todo)"></button>
           </div>
         </li>
       </ul>
@@ -50,7 +50,7 @@
 
       allDone: {
         get(){
-         //return this.rm === 0
+         return this.rm === 0
         },
 
         set(value){
