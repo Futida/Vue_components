@@ -50,7 +50,7 @@ export default {
       this.$http.get('http://echo.jsontest.com/key/value/one/two')
         .then(function (response) {
           this.customers = response.body
-          console.log(response.body, page);
+          console.log(response.body);
         })
     }
   },
