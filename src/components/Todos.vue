@@ -90,6 +90,7 @@
       },
 
       deleteTodo(todo){
+        console.log(todo);
         this.todos = this.todos.filter(item => item !== todo)
       },
 

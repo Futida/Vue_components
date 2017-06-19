@@ -29,17 +29,20 @@ body {
 .modal {
   background: #fff;
   margin: 0 auto;
-  position: absolute;
-  width: 50%;
+  position: fixed;
+  left: 500px;
+  width: 200px;
   border-radius: 5px;
 }
 
 .close {
   display: block;
   float: right;
+  z-index: 20;
 }
 
 #imgFull{
+  z-index: -2;
 
 }
 /* Галерея */

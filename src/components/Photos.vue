@@ -8,9 +8,9 @@
     <section class="grid">
       <div class="grid__item card" v-for='photo in photos'>
         <div class="card__body">
-          <img :src="photo.urls.small" alt="">
-          <div class="modal" v-show="flag" @click="showFullImage()">
-            <div class="close" @click="hideModal()">Close</div>
+          <img :src="photo.urls.small" alt="" @click="showModal(photo)">
+          <div class="modal" v-show="photo.flag">
+            <div class="close" @click="photo.flag = !photo.flag">Close</div>
             <img :src="photo.urls.regular" alt="" id="imgFull">
           </div>
         </div>
@@ -62,18 +62,17 @@
           console.log(this.photos);
           this.totalPhotos = parseInt(response.headers.get('x-total'));
           this.currentPage = page
+          this.photos.forEach(function(el) {
+            el.flag = false
+          })
         }, console.log)
       },
-      showFullImage: function() {
-          setTimeout(function() {
-            this.showModal()
-          }, 1000)
-      },
-      showModal: function() {
-        this.flag = true;
+
+      showModal: function(photo) {
+        console.log(photo);
+        photo.flag = true
       },
       hideModal: function() {
-        this.flag = false;
       }
     },
     created: function() {
