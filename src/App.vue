@@ -33,7 +33,9 @@
 <style>
 
   body {
-    height: 100px;
+    /*height: 100px;*/
+    width: 1200px;
+    margin: 0 auto;
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.4em;
     background: #f5f5f5;
@@ -48,6 +50,7 @@
   }
 
   #home:hover .popupContainer {
+    z-index: 20;
     display: block;
   }
 

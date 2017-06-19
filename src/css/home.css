@@ -11,3 +11,19 @@ body {
   font-smoothing: antialiased;
   font-weight: 300;
 }
+.imgHome{
+  height: 300px;
+  background: url("../static/img/vue.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.headerContent{
+  display: block;
+  margin-top: 80px;
+  padding-top: 20px;
+  margin-left: 180px;
+  font-size: 22px;
+  font-weight: bold;
+  color: darkcyan;
+}
