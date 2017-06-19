@@ -4,12 +4,15 @@
                 :total="totalPhotos"
                 :perPage="perPage"
                 @page-changed="fetchPhotos">
-
     </pagination>
     <section class="grid">
       <div class="grid__item card" v-for='photo in photos'>
         <div class="card__body">
           <img :src="photo.urls.small" alt="">
+          <div class="modal" v-show="flag" @click="showFullImage()">
+            <div class="close" @click="hideModal()">Close</div>
+            <img :src="photo.urls.regular" alt="" id="imgFull">
+          </div>
         </div>
         <div class="card__footer media">
           <img :src="photo.user.profile_image.small" alt="" class="media__obj">
@@ -37,7 +40,8 @@
         photos: [],
         totalPhotos: 0,
         perPage: 8,
-        currentPage: 1
+        currentPage: 1,
+        flag: false
       }
     },
     components: {
@@ -55,10 +59,21 @@
 
         this.$http.get('http://api.unsplash.com/photos', options).then(function(response) {
           this.photos = response.data;
-          //console.log(this.photos);
+          console.log(this.photos);
           this.totalPhotos = parseInt(response.headers.get('x-total'));
           this.currentPage = page
         }, console.log)
+      },
+      showFullImage: function() {
+          setTimeout(function() {
+            this.showModal()
+          }, 1000)
+      },
+      showModal: function() {
+        this.flag = true;
+      },
+      hideModal: function() {
+        this.flag = false;
       }
     },
     created: function() {
