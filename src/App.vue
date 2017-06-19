@@ -31,7 +31,6 @@
 
 
 <style>
-
   body {
     /*height: 100px;*/
     width: 1200px;
@@ -135,6 +134,5 @@
     font-size: 13px;
     display: block;
     width: 50px;
-
   }
 </style>

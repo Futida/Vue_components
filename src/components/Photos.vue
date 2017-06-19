@@ -23,10 +23,8 @@
                 :total="totalPhotos"
                 :perPage="perPage"
                 @page-changed="fetchPhotos">
-
     </pagination>
   </div>
-
 </template>
 
 <script>
@@ -67,24 +65,6 @@
       this.fetchPhotos(this.currentPage)
     }
   }
-
-  //  data() {
-  //    return {
-  //      customers: []
-  //    }
-  //  },
-  //  methods: {
-  //    fetchCustomers() {
-  //      this.$http.get('http://echo.jsontest.com/key/value/one/two')
-  //        .then(function (response) {
-  //          this.customers = response.body;
-  //          console.log(response.body);
-  //        })
-  //    }
-  //  },
-  //  created: function () {
-  //    this.fetchCustomers();
-  //  }
 </script>
 
 <style src="../css/photos.css"></style>
