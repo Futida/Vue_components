@@ -23,12 +23,7 @@ const router = new VueRouter({
     {
       path: '/photos',
       component: require('./components/Photos.vue')
-    },
-    {
-      path: '/contacts',
-      component: require('./components/home/Contacts.vue')
-    },
-
+    }
   ]
 
 });

@@ -1,35 +1,37 @@
 <template>
-  <section class="todoapp">
-    <header class="header">
-      <h1>Todos</h1>
-      <input type="text" class="new-todo" placeholder="Add task" v-model="newTodo">
-      <button class="add" @click="addTodo">Add task</button>
-    </header>
-    <div class="main">
-      <input type="checkbox" class="toggle-all" v-model="allDone">
+  <div class="container">
+    <section class="todoapp">
+      <header class="header">
+        <h1>Todos</h1>
+        <input type="text" class="new-todo" placeholder="Add task" v-model="newTodo">
+        <button class="add" @click="addTodo">Add task</button>
+      </header>
+      <div class="main">
+        <input type="checkbox" class="toggle-all" v-model="allDone">
 
-      <ul class="todo-list">
-        <li class="todo" v-for="todo in filterTodos" :class="{completed: todo.complete}">
-          <div class="view">
-            <input type="checkbox" v-model="todo.complete" class="toggle">
-            <label @dblclick="editTodo(todo)">{{ todo.name }}</label>
-            <button class="destroy" @click="deleteTodo(todo)"></button>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <footer class="footer" v-show="todos.length > 0">
+        <ul class="todo-list">
+          <li class="todo" v-for="todo in filterTodos" :class="{completed: todo.complete}">
+            <div class="view">
+              <input type="checkbox" v-model="todo.complete" class="toggle">
+              <label @dblclick="editTodo(todo)">{{ todo.name }}</label>
+              <button class="destroy" @click="deleteTodo(todo)"></button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <footer class="footer" v-show="todos.length > 0">
       <span class="todo-count">
           {{ rm }} task(-s) remain
       </span>
-      <ul class="filters">
-        <li><a href="#" :class="{selected: filter === 'all'}" @click="filter ='all'">All</a></li>
-        <li><a href="#" :class="{selected: filter === 'todo'}" @click="filter ='todo'">In process</a></li>
-        <li><a href="#" :class="{selected: filter === 'done'}" @click="filter ='done'">Completed</a></li>
-      </ul>
-      <button class="clear-completed" v-show="complete" @click="deleteComplete">Delete complete</button>
-    </footer>
-  </section>
+        <ul class="filters">
+          <li><a href="#" :class="{selected: filter === 'all'}" @click="filter ='all'">All</a></li>
+          <li><a href="#" :class="{selected: filter === 'todo'}" @click="filter ='todo'">In process</a></li>
+          <li><a href="#" :class="{selected: filter === 'done'}" @click="filter ='done'">Completed</a></li>
+        </ul>
+        <button class="clear-completed" v-show="complete" @click="deleteComplete">Delete complete</button>
+      </footer>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -50,7 +52,7 @@
 
       allDone: {
         get(){
-         return this.rm === 0
+          return this.rm === 0
         },
 
         set(value){

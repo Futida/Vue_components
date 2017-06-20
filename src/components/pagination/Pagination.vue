@@ -3,7 +3,7 @@
     <div class="pagination__left"><a href="#" v-if="hasPrev()" @click=changePage(prevPage)>Previous</a></div>
     <div class="pagination__mid">
       <!--<span>{{ current }} of {{ total }} </span>-->
-      <ul>
+      <ul class="pagination-sm">
         <li v-for="page in pages">
           <a href="#" @click="changePage(page)" :class="{ current: current == page }">{{ page }}</a>
         </li>

@@ -1,51 +1,51 @@
 <template>
-  <div id="app">
-    <ul id="container" class="sidenav">
-      <li id="home">
-        <router-link to="/">Home</router-link>
-        <div class="popupContainer">
-          <ul class="popup">
-            <li>
-              <router-link to="/contacts">Contacts</router-link>
+  <div>
+    <div class="container">
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <router-link to="/">Home</router-link>
             </li>
-            <li>
-              <router-link to="/#">About</router-link>
+
+            <li class="active">
+              <router-link to="/todos">Todos</router-link>
+            </li>
+            <li class="active">
+              <router-link to="/photos">Photos</router-link>
             </li>
           </ul>
-        </div>
-      </li>
-      <li>
-        <router-link to="/todos">Todos</router-link>
-      </li>
-      <li>
-        <router-link to="/photos">Photos</router-link>
-      </li>
-      <router-view></router-view>
-    </ul>
+          <router-view></router-view>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+    </div><!-- /.container-fluid -->
   </div>
 </template>
 
 <script>
+  export default{
 
+  }
 </script>
 
 
 <style>
   body {
-    /*height: 100px;*/
-    width: 1200px;
-    margin: 0 auto;
-    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.4em;
-    background: #f5f5f5;
-    color: #4d4d4d;
-    min-width: 230px;
-    max-width: 550px;
-    margin: 0 auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    font-weight: 300;
+    /*!*height: 100px;*!*/
+    /*width: 1200px;*/
+    /*margin: 0 auto;*/
+    /*font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    /*line-height: 1.4em;*/
+    /*background: #f5f5f5;*/
+    /*color: #4d4d4d;*/
+    /*min-width: 230px;*/
+    /*max-width: 550px;*/
+    /*margin: 0 auto;*/
+    /*-webkit-font-smoothing: antialiased;*/
+    /*-moz-font-smoothing: antialiased;*/
+    /*font-smoothing: antialiased;*/
+    /*font-weight: 300;*/
   }
 
   #home:hover .popupContainer {

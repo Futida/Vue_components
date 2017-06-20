@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class='imgHome'>
       <span class="headerContent">Welcome to Vue.js</span>
     </div>
@@ -8,7 +8,8 @@
 </template>
 
 <script>
-  export default{}
+  export default{
+  }
 </script>
 
 <style src="../css/home.css"></style>
