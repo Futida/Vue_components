@@ -1,16 +1,17 @@
 
 .imgHome{
-  height: 300px;
+  margin: 0 auto;
+  width: 70%;
+  height: 500px;
   background: url("../static/img/vue.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .headerContent{
-  display: block;
-  margin-top: 80px;
-  padding-top: 20px;
-  margin-left: 180px;
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
   font-size: 22px;
   font-weight: bold;
   color: darkcyan;
