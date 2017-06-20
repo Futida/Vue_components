@@ -9,10 +9,6 @@
       <div class="grid__item card" v-for='photo in photos'>
         <div class="card__body">
           <img :src="photo.urls.small" alt="" @click="showModal(photo)">
-          <div class="modal" v-show="photo.flag">
-            <div class="close" @click="photo.flag = !photo.flag">Close</div>
-            <img :src="photo.urls.regular" alt="" id="imgFull">
-          </div>
         </div>
         <div class="card__footer media">
           <img :src="photo.user.profile_image.small" alt="" class="media__obj">
@@ -22,6 +18,14 @@
         </div>
       </div>
     </section>
+
+    <div class="modal" v-show="flag">
+      <div class="modal-content">
+        <span class="close" @click="hideModal">X</span>
+        <img :src='path_to_largeImg' alt="" id="imgFull">
+      </div>
+    </div>
+
     <pagination :current="currentPage"
                 :total="totalPhotos"
                 :perPage="perPage"
@@ -41,6 +45,7 @@
         totalPhotos: 0,
         perPage: 8,
         currentPage: 1,
+        path_to_largeImg: '',
         flag: false
       }
     },
@@ -61,7 +66,7 @@
           this.photos = response.data;
           console.log(this.photos);
           this.totalPhotos = parseInt(response.headers.get('x-total'));
-          this.currentPage = page
+          this.currentPage = page;
           this.photos.forEach(function(el) {
             el.flag = false
           })
@@ -69,10 +74,12 @@
       },
 
       showModal: function(photo) {
-        console.log(photo);
-        photo.flag = true
+        this.path_to_largeImg = photo.urls.regular;
+        this.flag = true;
+        console.log(this.path_to_largeImg, this.flag);
       },
       hideModal: function() {
+        this.flag = false;
       }
     },
     created: function() {
