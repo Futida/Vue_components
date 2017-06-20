@@ -1,52 +1,45 @@
 <template>
   <div>
-    <div class="container">
-      <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+      <div class="container">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active">
               <router-link to="/">Home</router-link>
             </li>
-
-            <li class="active">
-              <router-link to="/todos">Todos</router-link>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Действие</a></li>
+                <li><a href="#">Другое действие</a></li>
+                <li><a href="#">Что-то еще</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Отдельная ссылка</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Еще одна отдельная ссылка</a></li>
+              </ul>
             </li>
+            <!--<li class="active">-->
+            <!--<router-link to="/todos">Todos</router-link>-->
+            <!--</li>-->
             <li class="active">
               <router-link to="/photos">Photos</router-link>
             </li>
           </ul>
-          <router-view></router-view>
         </div><!-- /.navbar-collapse -->
-      </nav>
-    </div><!-- /.container-fluid -->
-  </div>
+      </div>
+    </nav>
+    <router-view></router-view>
+  </div><!-- /.container-fluid -->
 </template>
 
 <script>
-  export default{
-
-  }
+  export default{}
 </script>
 
 
 <style>
-  body {
-    /*!*height: 100px;*!*/
-    /*width: 1200px;*/
-    /*margin: 0 auto;*/
-    /*font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
-    /*line-height: 1.4em;*/
-    /*background: #f5f5f5;*/
-    /*color: #4d4d4d;*/
-    /*min-width: 230px;*/
-    /*max-width: 550px;*/
-    /*margin: 0 auto;*/
-    /*-webkit-font-smoothing: antialiased;*/
-    /*-moz-font-smoothing: antialiased;*/
-    /*font-smoothing: antialiased;*/
-    /*font-weight: 300;*/
-  }
 
   #home:hover .popupContainer {
     z-index: 20;

@@ -43,7 +43,7 @@
         appId: 'b522601914f377642e0d91d1f00042d196c83af6f628d8d7d51d6032c7e4cb7e',
         photos: [],
         totalPhotos: 0,
-        perPage: 8,
+        perPage: 6,
         currentPage: 1,
         path_to_largeImg: '',
         flag: false
