@@ -1,0 +1,9 @@
+.media-object{
+  width: 130px;
+  padding: 10px;
+}
+
+.media{
+  border-top: 1px solid lightgrey;
+  padding-top: 20px;
+}

@@ -27,6 +27,9 @@
               <li class="active">
                 <router-link to="/photos">Photos</router-link>
               </li>
+              <li class="active">
+                <router-link to="/news">News</router-link>
+              </li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>

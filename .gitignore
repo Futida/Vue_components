@@ -7,4 +7,5 @@ yarn-error.log*
 .idea/
 .idea/vcs.xml
 .idea/watcherTasks.xml
+.idea/workspace.xml
 
