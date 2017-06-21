@@ -76,7 +76,6 @@
       showModal: function(photo) {
         this.path_to_largeImg = photo.urls.regular;
         this.flag = true;
-        console.log(this.path_to_largeImg, this.flag);
       },
       hideModal: function() {
         this.flag = false;

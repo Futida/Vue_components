@@ -7,7 +7,8 @@ import News from '../components/News.vue'
 const routes = [
   { path: '/', component: Home },
   { path: '/photos', component: Photos },
-  { path: '/news', component: News }
+  { path: '/news', component: News },
+  { path: '/*', redirect: '/' }
   ];
 
 const router = new VueRouter({

@@ -25,6 +25,7 @@
   top: 200px;
   left: 500px;
   display: block;
+  transition: all .3s ease;
   overflow: auto;
   z-index: 2000;
   width: 800px;
