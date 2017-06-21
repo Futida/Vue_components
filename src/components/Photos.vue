@@ -1,11 +1,11 @@
 <template>
   <div id="app_photos">
     <div class="container">
-      <pagination :current="currentPage"
+      <Pagination :current="currentPage"
                   :total="totalPhotos"
                   :perPage="perPage"
                   @page-changed="fetchPhotos">
-      </pagination>
+      </Pagination>
       <div class="container-fluid">
         <div class="grid">
           <div class="grid__item card" v-for='photo in photos'>
@@ -22,11 +22,11 @@
         </div>
       </div>
 
-      <pagination :current="currentPage"
+      <Pagination :current="currentPage"
                   :total="totalPhotos"
                   :perPage="perPage"
                   @page-changed="fetchPhotos">
-      </pagination>
+      </Pagination>
 
       <div class="modal" v-show="flag">
         <div class="modal-content">
@@ -53,9 +53,8 @@
         flag: false
       }
     },
-    components: {
-      pagination: Pagination
-    },
+    components: { Pagination },
+
     methods: {
       fetchPhotos: function(page) {
         var options = {

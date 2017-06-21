@@ -1,15 +1,17 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import VueRouter from 'vue-router'
+import Home from '../components/Home.vue'
+import Photos from '../components/Photos.vue'
 
-Vue.use(Router);
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    }
-  ]
-})
+const routes = [
+  { path: '/', component: Home },
+  { path: '/photos', component: Photos }
+  ];
+
+const router = new VueRouter({
+  mode: 'history',
+  routes
+
+});
+
+export default router
