@@ -30,7 +30,7 @@
     props: ['source'],
     methods: {
       updateSource: function(source) {
-        this.$http.get('https://newsapi.org/v1/articles?source=' + source + '&apiKey=9d0bd4eff53547ce8cb0b46293bcc14e')
+        this.$http.get('https://newsapi.org/v1/articles?source=' + source + '&apiKey=35265661d7994a14bb1139af14eb605d')
           .then(response => {
             this.articles = response.data.articles
           })

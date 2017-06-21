@@ -1,7 +1,7 @@
 <template>
   <div class="container" id="app">
-    <ModeSelection @sourceChanged="sourceChanged"></ModeSelection>
-    <NewsList :source="source"></NewsList>
+    <ModeSelection v-on:changesource="sourceChanged"></ModeSelection>
+    <NewsList :source="source" ></NewsList>
   </div>
 </template>
 
@@ -17,7 +17,7 @@
     },
     data(){
       return {
-        source: ''
+        source: 'abc-news-au',
       }
     },
     methods: {

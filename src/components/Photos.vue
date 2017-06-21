@@ -28,12 +28,14 @@
                   @page-changed="fetchPhotos">
       </Pagination>
 
-      <div class="modal" v-show="flag">
-        <div class="modal-content">
-          <span class="close" @click="hideModal">X</span>
-          <img :src='path_to_largeImg' alt="" id="imgFull">
+      <transition name="modal">
+        <div class="modal" v-show="flag">
+          <div class="modal-content">
+            <span class="close" @click="hideModal">X</span>
+            <img :src='path_to_largeImg' alt="" id="imgFull">
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
