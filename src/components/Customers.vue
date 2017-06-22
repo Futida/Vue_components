@@ -133,7 +133,7 @@
       showModal: function() {
         alert('Are you sure remove this customer?');
         this.flag = true;
-        setTimeout(this.hideModal, 3000);
+        setTimeout(this.hideModal, 1000);
       },
       hideModal: function() {
         this.flag = false

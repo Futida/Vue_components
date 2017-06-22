@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffa37a13-9e0d-4fd5-ab2a-b201698785ba" name="Default" comment="">
+    <list default="true" id="ffa37a13-9e0d-4fd5-ab2a-b201698785ba" name="Default" comment="customers">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Customers.vue" afterPath="$PROJECT_DIR$/src/components/Customers.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/customers.css" afterPath="$PROJECT_DIR$/src/css/customers.css" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -52,8 +50,8 @@
       <file leaf-file-name="Customers.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Customers.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="83" column="19" lean-forward="true" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+            <state relative-caret-position="192">
+              <caret line="116" column="18" lean-forward="false" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -194,7 +192,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="y" value="24" />
     <option name="width" value="1280" />
     <option name="height" value="726" />
   </component>
@@ -491,7 +489,7 @@
       <workItem from="1498032556086" duration="113000" />
       <workItem from="1498032677923" duration="193000" />
       <workItem from="1498032878848" duration="16442000" />
-      <workItem from="1498115552578" duration="15058000" />
+      <workItem from="1498115552578" duration="15732000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1497439524686</created>
@@ -752,14 +750,21 @@
       <option name="project" value="LOCAL" />
       <updated>1498136511408</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="customers">
+      <created>1498137050778</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1498137050778</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123736000" />
+    <option name="totallyTimeSpent" value="124410000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="726" extended-state="6" />
+    <frame x="0" y="24" width="1280" height="726" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21445592" sideWeight="0.48264983" order="0" side_tool="false" content_ui="combo" />
@@ -1186,8 +1191,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Customers.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="83" column="19" lean-forward="true" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+        <state relative-caret-position="192">
+          <caret line="116" column="18" lean-forward="false" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
           <folding />
         </state>
       </provider>
