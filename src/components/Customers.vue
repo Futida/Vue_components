@@ -1,15 +1,7 @@
 <template>
   <div class="container">
     <div class="container-fluid">
-      <transition name="modal">
-        <div class="modal-success" v-show="flag">
-          <div class="modal-success_container">
-            <span>Успешно удалено</span>
-          </div>
-        </div>
-      </transition>
-
-      <h2 class="text-center">Vue.js && FireBase</h2>
+      <h2 class="text-center">Vue.js && Firebase</h2>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3>Add Customer</h3>
@@ -83,6 +75,13 @@
           </div>
         </div>
       </div>
+      <transition name="modal">
+        <div class="modal-success" v-show="flag">
+          <div class="modal-success_container">
+            <span>Успешно удалено</span>
+          </div>
+        </div>
+      </transition>
     </div>
   </div>
 </template>

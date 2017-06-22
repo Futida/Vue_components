@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active" style="color: #e3f2fd">
+            <li>
               <router-link to="/">Home</router-link>
             </li>
             <li class="dropdown">
@@ -34,13 +34,13 @@
             <!--<li class="active">-->
             <!--<router-link to="/todos">Todos</router-link>-->
             <!--</li>-->
-            <li class="active">
+            <li>
               <router-link to="/photos">Photos</router-link>
             </li>
-            <li class="active">
+            <li>
               <router-link to="/news">News</router-link>
             </li>
-            <li class="active">
+            <li>
               <router-link to="/customers">Customers</router-link>
             </li>
           </ul>

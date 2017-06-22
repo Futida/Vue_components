@@ -1,5 +1,6 @@
 .modal-success {
   position: fixed;
+  top: 90px;
   left: 1395px;
   background-color: lightgreen;
   display: block;
