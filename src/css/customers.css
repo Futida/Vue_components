@@ -1,0 +1,22 @@
+.modal-success {
+  position: fixed;
+  left: 1395px;
+  background-color: lightgreen;
+  display: block;
+  border-radius: 10px;
+  transition: all .3s linear;
+}
+
+.modal-success_container {
+  padding: 10px;
+  color: white;
+  text-shadow: 1px 1px 1px red;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}

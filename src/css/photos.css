@@ -22,23 +22,32 @@
 }
 
 .modal-content {
-  position:fixed;
+  position: fixed;
   top: 200px;
   left: 500px;
   display: block;
   transition: all .3s ease;
   overflow: auto;
   z-index: 2000;
+  height:600px;
   width: 800px;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
 }
 
 .close {
   position: absolute;
-  top:5px;
+  top: 5px;
   left: 775px;
   padding-left: 3px;
   font-weight: bold;
-  width:20px;
+  width: 20px;
   z-index: 20;
   color: brown;
   background-color: coral;
@@ -51,7 +60,8 @@
 }
 
 #imgFull {
-  width: 800px;
+  height: 100%;
+  width: 100%;
   z-index: -2;
 }
 
@@ -101,7 +111,7 @@
 
 .card__footer {
   width: 100%;
-  margin-top:5px;
+  margin-top: 5px;
   padding: 10px 15px;
 }
 
