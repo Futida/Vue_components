@@ -5,7 +5,7 @@
   background-color: lightgreen;
   display: block;
   border-radius: 10px;
-  transition: all .3s linear;
+  transition: all .5s ease;
 }
 
 .modal-success_container {
@@ -15,9 +15,32 @@
 }
 
 .modal-enter {
+  transform: translateY(-30px);
   opacity: 0;
 }
 
 .modal-leave-active {
   opacity: 0;
+  transform: translateY(-30px);
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
