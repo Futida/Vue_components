@@ -75,9 +75,11 @@
           </div>
         </div>
       </div>
-      <transition name="bounce">
-        <div class="modal-success" v-show="flag">
-          <div class="modal-success_container">
+
+      <!--removal alert-->
+      <transition name="alert">
+        <div class="alert-success" v-show="flag">
+          <div class="alert-success_container">
             <span>Успешно удалено</span>
           </div>
         </div>
@@ -131,7 +133,7 @@
         this.showModal();
       },
       showModal: function() {
-       // alert('Are you sure remove this customer?');
+        // alert('Are you sure remove this customer?');
         this.flag = true;
         setTimeout(this.hideModal, 2000);
       },

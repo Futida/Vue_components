@@ -1,6 +1,6 @@
 <template>
   <div class="container" id="app">
-    <ModeSelection v-on:changesource="sourceChanged"></ModeSelection>
+    <ModeSelection @changesource="sourceChanged"></ModeSelection>
     <NewsList :source="source"></NewsList>
   </div>
 </template>

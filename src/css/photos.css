@@ -18,7 +18,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: opacity .3s ease;
+  transition: all 0.2s cubic-bezier(.55,.54,.87,.32);
 }
 
 .modal-content {
@@ -26,7 +26,6 @@
   top: 200px;
   left: 500px;
   display: block;
-  transition: all .3s ease;
   overflow: auto;
   z-index: 2000;
   height:600px;
@@ -35,6 +34,7 @@
 
 .modal-enter {
   opacity: 0;
+
 }
 
 .modal-leave-active {

@@ -1,4 +1,4 @@
-.modal-success {
+.alert-success {
   position: fixed;
   top: 90px;
   left: 1395px;
@@ -8,20 +8,20 @@
   transition: all .5s ease;
 }
 
-.modal-success_container {
+.alert-success_container {
   padding: 10px;
   color: white;
   text-shadow: 1px 1px 1px red;
 }
 
-.modal-enter {
-  transform: translateY(-30px);
+.alert-enter {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
   opacity: 0;
 }
 
-.modal-leave-active {
+.alert-leave-active {
   opacity: 0;
-  transform: translateY(-30px);
+  /*transform: translateY(-30px);*/
   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 
