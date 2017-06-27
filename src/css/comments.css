@@ -1,3 +1,8 @@
+.buttonRating{
+  outline: none;
+  /*border-radius: 10px;*/
+}
+
 /*replymodalReply*/
 .modalReply-mask {
   position: fixed;
@@ -63,3 +68,5 @@
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+

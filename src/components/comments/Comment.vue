@@ -1,12 +1,27 @@
 <template>
   <div>
-    <div class="panel panel-default">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <span>
+          <span> Rating: {{ counter }} </span>
+          <div class="btn-group btn-group-xs">
+          <button class="buttonRating btn btn-warning" @click="upCounter">up</button>
+          <button class="buttonRating btn btn-warning" @click="downCounter" v-show="this.counter > 0">down</button>
+          </div>
+
+        </span>
+        <span class="pull-right"> Date: {{ date }} </span>
+      </div>
       <div class="panel-body">
         {{ comment }}
-        <span> {{ date }} </span>
-        <span class="glyphicon glyphicon-share-alt pull-right" @click="showReplyModal"></span>
+        <div class="pull-right">
+          <div @click="showReplyModal" style="cursor: pointer">
+            <span>Reply</span>
+            <span class="glyphicon glyphicon-share-alt"></span>
+          </div>
+        </div>
       </div>
-      <ReplyComments :replyComment="el.replyComment" v-for="(el,key) in replyComments" :key="key"></ReplyComments>
+      <ReplyComments :replyComment="el" v-for="(el,key) in replyComments" :key="key"></ReplyComments>
     </div>
 
 
@@ -17,7 +32,7 @@
 
             <div class="modalReply-header">
                 <span name="header" class="glyphicon glyphicon-remove pull-right"
-                      @click="closeReplyModal"></span>
+                      @click="closeReplyModal" style="cursor: pointer"></span>
             </div>
             <div class="modalReply-body">
               <textarea id="1" cols="50" rows="10" v-model="replyComment"></textarea>
@@ -46,9 +61,11 @@
     data(){
       return {
         flag: false,
-        date: new Date(),
+        date: this.date(),
         replyComment: '',
-        replyComments: []
+        replyComments: [],
+        counter: 0,
+        id: 1
       }
     },
     methods: {
@@ -60,15 +77,36 @@
       },
       addReplyComment: function() {
         if (this.replyComment && this.replyComment.length) {
-          this.replyComments.push({ replyComment: this.replyComment })
+          this.replyComments.push({ id: this.id++, replyComment: this.replyComment })
         }
         this.closeReplyModal();
         //this.replyComment = ''
+      },
+      upCounter: function() {
+        this.counter++
+      },
+      downCounter: function() {
+        this.counter--
+      },
+      date(){
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = getMonth();
+        var day = date.getDate();
+        var time = date.toLocaleString();
+        // var fullData = year + " " + month + " " + day + " " + time;
+        return time;
+        function getMonth() {
+          let month = date.getMonth();
+          if (month < 10) {
+            var m = "0" + month
+          }
+          return m;
+        }
       }
     }
-
   }
 
 </script>
 
-<style></style>
+<style src="../../css/comments.css"></style>

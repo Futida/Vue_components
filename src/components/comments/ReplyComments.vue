@@ -1,18 +1,16 @@
 <template>
   <div>
     <div class="panel-footer">
-      {{ replyComment }}
+      {{ replyComment.id }}
+      {{ replyComment.replyComment }}
     </div>
   </div>
 </template>
 
 <script>
 
-
   export default{
-
-    props: ['replyComment'],
-
+    props: ['replyComment']
   }
 
 </script>
