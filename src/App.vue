@@ -31,9 +31,6 @@
                 <li><a href="#">Еще одна отдельная ссылка</a></li>
               </ul>
             </li>
-            <!--<li class="active">-->
-            <!--<router-link to="/todos">Todos</router-link>-->
-            <!--</li>-->
             <li>
               <router-link to="/photos">Photos</router-link>
             </li>
@@ -42,6 +39,12 @@
             </li>
             <li>
               <router-link to="/customers">Customers</router-link>
+            </li>
+            <!--<li class="active">-->
+              <!--<router-link to="/todos">Todos</router-link>-->
+            <!--</li>-->
+            <li>
+              <router-link to="/comments">Comments</router-link>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->

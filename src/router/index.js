@@ -3,6 +3,8 @@ import Home from '../components/Home.vue'
 import Photos from '../components/Photos.vue'
 import News from '../components/News.vue'
 import Customers from '../components/Customers.vue'
+import Todos from '../components/Todos.vue'
+import Comments from '../components/Comments.vue'
 
 
 const routes = [
@@ -10,6 +12,8 @@ const routes = [
   { path: '/photos', component: Photos },
   { path: '/news', component: News },
   { path: '/customers', component: Customers },
+  { path: '/todos', component: Todos },
+  { path: '/comments', component: Comments },
   { path: '/*', redirect: '/' }
   ];
 

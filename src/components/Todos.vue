@@ -21,7 +21,7 @@
       </div>
       <footer class="footer" v-show="todos.length > 0">
       <span class="todo-count">
-          {{ rm }} task(-s) remain
+          {{ rm }} task(-s) remain, date {{ date }}
       </span>
         <ul class="filters">
           <li><a href="#" :class="{selected: filter === 'all'}" @click="filter ='all'">All</a></li>
@@ -65,6 +65,19 @@
 
       rm(){
         return this.todos.filter(todo => !todo.complete).length
+      },
+      date(){
+        var date = new Date();
+        var year = date.getFullYear();
+        var d
+
+        getWeekDay();
+
+        function getWeekDay() {
+          var day = date.getDay();
+          var days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+          return days[day];
+        };
       },
       complete(){
         return this.todos.filter(todo => todo.complete).length
