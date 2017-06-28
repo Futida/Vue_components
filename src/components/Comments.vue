@@ -28,6 +28,7 @@
   import Comment from './comments/Comment.vue'
 
   export default{
+
     components: { Comment },
 
     data(){
