@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <h4>Select New source</h4>
     <select class="form-control" @change="sourceChanged">
-      <option :value="source.id" v-for="source in sources"> {{ source.name }}</option>
+      <option :value="source.id" v-for="(source, key) in sources" :key='key'> {{ source.name }}</option>
     </select>
 
     <div v-if="source">

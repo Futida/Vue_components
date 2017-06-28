@@ -40,42 +40,42 @@
           <div class="table-responsive">
             <table class="table table-striped table-hover">
               <thead>
-              <tr>
-                <th>Имя</th>
-                <th>Фамилия</th>
-                <th>Возраст</th>
-                <th>Пол</th>
-                <th>Страна</th>
-                <th>Delete</th>
-              </tr>
+                <tr>
+                  <th>Имя</th>
+                  <th>Фамилия</th>
+                  <th>Возраст</th>
+                  <th>Пол</th>
+                  <th>Страна</th>
+                  <th>Delete</th>
+                </tr>
               </thead>
               <tbody>
-              <tr v-for="customer in customers">
-                <td>
-                  {{ customer.name }}
-                </td>
-                <td>
-                  {{ customer.lastName }}
-                </td>
-                <td>
-                  {{ customer.age }}
-                </td>
-                <td>
-                  {{ customer.gender }}
-                </td>
-                <td>
-                  {{ customer.country }}
-                </td>
-                <td>
-                  <span class="glyphicon glyphicon-trash" @click="deleteCustomer(customer)"></span>
-                </td>
-              </tr>
+                <tr v-for="(customer,index) in customers" :key="index">
+                  <td>
+                    {{ customer.name }}
+                  </td>
+                  <td>
+                    {{ customer.lastName }}
+                  </td>
+                  <td>
+                    {{ customer.age }}
+                  </td>
+                  <td>
+                    {{ customer.gender }}
+                  </td>
+                  <td>
+                    {{ customer.country }}
+                  </td>
+                  <td>
+                    <span class="glyphicon glyphicon-trash" @click="deleteCustomer(customer)"></span>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-
+  
       <!--removal alert-->
       <transition name="alert">
         <div class="alert-success" v-show="flag">
@@ -90,59 +90,59 @@
 
 <script>
 
-  import Firebase from 'firebase'
-  //  import toastr from 'toastr'
+import Firebase from 'firebase'
+//  import toastr from 'toastr'
 
-  let config = {
-    apiKey: "AIzaSyBFV9LmgPFFHgo9JnEx11Zry5Mir6QbJYU",
-    authDomain: "customers-26cee.firebaseapp.com",
-    databaseURL: "https://customers-26cee.firebaseio.com",
-    projectId: "customers-26cee",
-    storageBucket: "customers-26cee.appspot.com",
-    messagingSenderId: "985977058259"
-  };
+let config = {
+  apiKey: "AIzaSyBFV9LmgPFFHgo9JnEx11Zry5Mir6QbJYU",
+  authDomain: "customers-26cee.firebaseapp.com",
+  databaseURL: "https://customers-26cee.firebaseio.com",
+  projectId: "customers-26cee",
+  storageBucket: "customers-26cee.appspot.com",
+  messagingSenderId: "985977058259"
+};
 
-  let app = Firebase.initializeApp(config);
-  let db = app.database();
+let app = Firebase.initializeApp(config);
+let db = app.database();
 
-  let customersRef = db.ref('customers');
+let customersRef = db.ref('customers');
 
-  export default{
-    firebase: {
-      customers: customersRef
-    },
-    data(){
-      return {
-        newCustomer: {
-          name: '',
-          lastName: '',
-          age: '',
-          gender: '',
-          country: ''
-        },
-        flag: false
-      }
-    },
-    methods: {
-      addCustomer: function() {
-        customersRef.push(this.newCustomer);
+export default {
+  firebase: {
+    customers: customersRef
+  },
+  data() {
+    return {
+      newCustomer: {
+        name: '',
+        lastName: '',
+        age: '',
+        gender: '',
+        country: ''
       },
-      deleteCustomer: function(customer) {
-        customersRef.child(customer['.key']).remove();
-        // toastr.success('Customer deleted')
-        this.showModal();
-      },
-      showModal: function() {
-        // alert('Are you sure remove this customer?');
-        this.flag = true;
-        setTimeout(this.hideModal, 2000);
-      },
-      hideModal: function() {
-        this.flag = false
-      }
-
+      flag: false
     }
+  },
+  methods: {
+    addCustomer: function () {
+      customersRef.push(this.newCustomer);
+    },
+    deleteCustomer: function (customer) {
+      customersRef.child(customer['.key']).remove();
+      // toastr.success('Customer deleted')
+      this.showModal();
+    },
+    showModal: function () {
+      // alert('Are you sure remove this customer?');
+      this.flag = true;
+      setTimeout(this.hideModal, 2000);
+    },
+    hideModal: function () {
+      this.flag = false
+    }
+
   }
+}
 </script>
 
 <style src="../css/customers.css"></style>

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <ul class="media-list">
-      <li class="media" v-for="article in articles">
+      <li class="media" v-for="(article, key) in articles" :key='key'>
         <div class="media-left">
           <a :href="article.url" target="_blank">
             <img class="media-object" :src="article.urlToImage" alt="">

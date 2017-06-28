@@ -8,7 +8,7 @@
       </Pagination>
       <div class="container-fluid">
         <div class="grid">
-          <div class="grid__item card" v-for='photo in photos'>
+          <div class="grid__item card" v-for='(photo, key) in photos' :key='key'>
             <div class="card__body">
               <img :src="photo.urls.small" alt="" @click="showModal(photo)">
             </div>
