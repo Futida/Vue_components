@@ -1,6 +1,11 @@
-.buttonRating{
+.buttonRating {
   outline: none;
   /*border-radius: 10px;*/
+}
+
+.statisticsComments {
+  display: grid;
+  float: right;
 }
 
 /*replymodalReply*/

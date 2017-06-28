@@ -14,11 +14,13 @@
             </div>
             <input type="submit" class="btn btn-primary" value="Add Comment">
           </form>
-          <div class="pull-right" v-show="comments.length > 0">
-            Total comments: {{ comments.length }}
-          </div>
-          <div class="pull-right" v-show="totalCommentsLength > 0">
-            Total answers: {{ totalCommentsLength }}
+          <div class="statisticsComments">
+            <div class="pull-right" v-show="comments.length > 0">
+              Total comments: {{ comments.length }}
+            </div>
+            <div class="pull-right" v-show="totalCommentsLength > 0" style="padding-left: 15px">
+              Total answers: {{ totalCommentsLength }}
+            </div>
           </div>
         </div>
       </div>

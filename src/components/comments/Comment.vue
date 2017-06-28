@@ -3,7 +3,7 @@
     <div class="panel panel-success">
       <div class="panel-heading">
         <span>
-          <span> Rating: {{ counter }} </span>
+          <span> Rating: {{ rating }} </span>
           <div class="btn-group btn-group-xs">
             <button class="buttonRating btn btn-warning" @click="upRating">up</button>
             <button class="buttonRating btn btn-warning" @click="downRating" v-show="this.rating > 0">down</button>
