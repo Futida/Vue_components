@@ -50,7 +50,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr v-for="(customer,key) in customers" :key="key">
+              <tr v-for="customer in customers">
                 <td>
                   {{ customer.name }}
                 </td>
@@ -91,15 +91,14 @@
 <script>
 
   import Firebase from 'firebase'
-  //  import toastr from 'toastr'
 
   let config = {
-    apiKey: "AIzaSyBFV9LmgPFFHgo9JnEx11Zry5Mir6QbJYU",
-    authDomain: "customers-26cee.firebaseapp.com",
-    databaseURL: "https://customers-26cee.firebaseio.com",
-    projectId: "customers-26cee",
-    storageBucket: "customers-26cee.appspot.com",
-    messagingSenderId: "985977058259"
+    apiKey: "AIzaSyDLtjbe_bzpSwQ66gH-6lsHSXD2oZLFHec",
+    authDomain: "customers-720db.firebaseapp.com",
+    databaseURL: "https://customers-720db.firebaseio.com",
+    projectId: "customers-720db",
+    storageBucket: "customers-720db.appspot.com",
+    messagingSenderId: "396512097257"
   };
 
   let app = Firebase.initializeApp(config);

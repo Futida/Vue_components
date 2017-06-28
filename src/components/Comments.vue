@@ -14,11 +14,20 @@
             </div>
             <input type="submit" class="btn btn-primary" value="Add Comment">
           </form>
+          <div class="pull-right" v-show="comments.length > 0">
+            Total comments: {{ comments.length }}
+          </div>
+          <div class="pull-right" v-show="totalCommentsLength > 0">
+            Total answers: {{ totalCommentsLength }}
+          </div>
         </div>
       </div>
     </div>
     <div class="container-fluid">
-      <Comment :comment="item.comment" v-for="(item, key) in comments" :key="key"></Comment>
+      <Comment :comment="item.comment" v-for="(item, key) in comments"
+               :key="key"
+               @totalCommentsLength="replyCommentsLength">
+      </Comment>
     </div>
   </div>
 </template>
@@ -35,6 +44,7 @@
       return {
         comments: [],
         newComment: '',
+        totalCommentsLength: 0
       }
     },
     methods: {
@@ -43,6 +53,9 @@
           this.comments.push({ comment: this.newComment })
         }
         this.newComment = ''
+      },
+      replyCommentsLength: function(length) {
+        this.totalCommentsLength = length
       }
     }
   }

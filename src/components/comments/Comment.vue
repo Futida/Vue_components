@@ -5,8 +5,8 @@
         <span>
           <span> Rating: {{ counter }} </span>
           <div class="btn-group btn-group-xs">
-            <button class="buttonRating btn btn-warning" @click="upCounter">up</button>
-            <button class="buttonRating btn btn-warning" @click="downCounter" v-show="this.counter > 0">down</button>
+            <button class="buttonRating btn btn-warning" @click="upRating">up</button>
+            <button class="buttonRating btn btn-warning" @click="downRating" v-show="this.rating > 0">down</button>
           </div>
 
         </span>
@@ -63,10 +63,11 @@
         date: this.date(),
         replyComment: '',
         replyComments: [],
-        counter: 0,
+        rating: 0,
         id: 1
       }
     },
+
     methods: {
       showReplyModal: function() {
         this.flag = true
@@ -78,14 +79,15 @@
         if (this.replyComment && this.replyComment.length) {
           this.replyComments.push({ id: this.id++, replyComment: this.replyComment })
         }
+        this.$emit('totalCommentsLength', this.replyComments.length);
         this.closeReplyModal();
         this.replyComment = ''
       },
-      upCounter: function() {
-        this.counter++
+      upRating: function() {
+        this.rating++
       },
-      downCounter: function() {
-        this.counter--
+      downRating: function() {
+        this.rating--
       },
       date() {
         var date = new Date();
