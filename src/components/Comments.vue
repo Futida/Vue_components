@@ -21,14 +21,20 @@
             <div class="pull-right" v-show="totalCommentsLength > 0" style="padding-left: 15px">
               Total answers: {{ totalCommentsLength }}
             </div>
+            <div>
+              <button class="btn btn-info" @click="sortByRating">Sort by rating</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="container-fluid">
-      <Comment :comment="item.comment" v-for="(item, key) in comments"
-               :key="key"
-               @totalCommentsLength="replyCommentsLength">
+      <Comment
+        v-for="(item, key) in comments"
+        :data="item"
+        :index="key"
+        :key="key"
+        @totalCommentsLength="replyCommentsLength">
       </Comment>
     </div>
   </div>
@@ -52,14 +58,26 @@
     methods: {
       addComment: function() {
         if (this.newComment && this.newComment.length) {
-          this.comments.push({ comment: this.newComment })
+          this.comments.push({
+            comment: this.newComment,
+            rating: 0
+          })
         }
         this.newComment = ''
       },
       replyCommentsLength: function(length) {
         this.totalCommentsLength = length
+      },
+      sortByRating: function() {
+        function compare(a, b) {
+          if (a.rating < b.rating)
+            return -1;
+          if (a.rating > b.rating)
+            return 1;
+        }
+        this.comments.sort(compare)
       }
-    }
+    },
   }
 
 </script>

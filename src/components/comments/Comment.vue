@@ -3,17 +3,17 @@
     <div class="panel panel-success">
       <div class="panel-heading">
         <span>
-          <span> Rating: {{ rating }} </span>
+          <span> Rating: {{ data.rating }} </span>
           <div class="btn-group btn-group-xs">
             <button class="buttonRating btn btn-warning" @click="upRating">up</button>
-            <button class="buttonRating btn btn-warning" @click="downRating" v-show="this.rating > 0">down</button>
+            <button class="buttonRating btn btn-warning" @click="downRating" v-show="this.data.rating > 0">down</button>
           </div>
 
         </span>
         <span class="pull-right"> Date: {{ date }} </span>
       </div>
       <div class="panel-body">
-        {{ comment }}
+        {{ data.comment }}
         <div class="pull-right">
           <div @click="showReplyModal" style="cursor: pointer">
             <span>Reply</span>
@@ -56,14 +56,13 @@
 
   export default {
     components: { ReplyComments },
-    props: ['comment'],
+    props: ['data', 'index'],
     data() {
       return {
         flag: false,
         date: this.date(),
         replyComment: '',
         replyComments: [],
-        rating: 0,
         id: 1
       }
     },
@@ -84,10 +83,10 @@
         this.replyComment = ''
       },
       upRating: function() {
-        this.rating++
+        this.data.rating++;
       },
       downRating: function() {
-        this.rating--
+        this.data.rating--;
       },
       date() {
         var date = new Date();
