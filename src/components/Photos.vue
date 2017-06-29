@@ -54,7 +54,7 @@
   export default {
     data() {
       return {
-        appId: 'b522601914f377642e0d91d1f00042d196c83af6f628d8d7d51d6032c7e4cb7e',
+        appId: '42431486eda2e6beeb3764b7dd89568297766bfe93f8d2e297eebe51510ce3f9',
         photos: [],
         totalPhotos: 0,
         perPage: 4,
@@ -77,7 +77,7 @@
 
         this.$http.get('http://api.unsplash.com/photos', options).then(function(response) {
           this.photos = response.data;
-          console.log(this.photos);
+          //console.log(this.photos);
           this.totalPhotos = parseInt(response.headers.get('x-total'));
           this.currentPage = page;
         }, console.log)
