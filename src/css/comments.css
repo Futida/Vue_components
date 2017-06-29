@@ -4,11 +4,19 @@
 }
 
 .statisticsComments {
-  display: grid;
+  display: block;
+  margin-left: 941px;
+  padding: 10px;
+  line-height: 1.5em;
+
+}
+.sort{
+  display: block;
+  padding: 10px;
   float: right;
 }
 
-/*replymodalReply*/
+/*modalReply*/
 .modalReply-mask {
   position: fixed;
   z-index: 9998;

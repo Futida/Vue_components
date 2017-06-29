@@ -15,16 +15,22 @@
             <input type="submit" class="btn btn-primary" value="Add Comment">
           </form>
           <div class="statisticsComments">
-            <div class="pull-right" v-show="comments.length > 0">
+            <div>
               Total comments: {{ comments.length }}
             </div>
-            <div class="pull-right" v-show="totalCommentsLength > 0" style="padding-left: 15px">
+            <div style="padding-left: 15px">
               Total answers: {{ totalCommentsLength }}
             </div>
-            <div>
-              <button class="btn btn-info" @click="sortByRating">Sort by rating</button>
-            </div>
           </div>
+        <div class="sort">
+          Sort by rating:
+          <button class="btn btn-success" @click="sortByRatingUp">
+            <span class="glyphicon glyphicon-arrow-up"></span>
+          </button>
+          <button class="btn btn-success" @click="sortByRatingDown">
+            <span class="glyphicon glyphicon-arrow-down"></span>
+          </button>
+        </div>
         </div>
       </div>
     </div>
@@ -68,16 +74,30 @@
       replyCommentsLength: function(length) {
         this.totalCommentsLength = length
       },
-      sortByRating: function() {
-        function compare(a, b) {
+      sortByRatingUp: function() {
+
+        function compareUp(a, b) {
           if (a.rating < b.rating)
             return -1;
           if (a.rating > b.rating)
             return 1;
         }
-        this.comments.sort(compare)
+
+        this.comments.sort(compareUp)
+      },
+      sortByRatingDown: function() {
+
+        function compareDown(a, b) {
+          if (a.rating > b.rating)
+            return -1;
+          if (a.rating < b.rating)
+            return 1;
+        }
+
+        this.comments.sort(compareDown)
+
       }
-    },
+    }
   }
 
 </script>
