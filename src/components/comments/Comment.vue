@@ -78,7 +78,7 @@
         if (this.replyComment && this.replyComment.length) {
           this.replyComments.push({ id: this.id++, replyComment: this.replyComment })
         }
-        this.$emit('totalCommentsLength', this.replyComments.length);
+        this.$emit('totalReplyCommentsLength', this.replyComments.length);
         this.closeReplyModal();
         this.replyComment = ''
       },

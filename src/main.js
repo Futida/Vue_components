@@ -5,10 +5,16 @@ import VueRouter from 'vue-router';
 import VueResource from 'vue-resource'
 import VueFire from 'vuefire'
 import router from './router/index'
+import * as VueGoogleMaps from 'vue2-google-maps'
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
 Vue.use(VueFire);
+Vue.use(VueGoogleMaps, {
+  load:{
+    key:'AIzaSyDmlY00L3Y6ZqFYMxdDRE0FnmJWnYG6vIs'
+  }
+});
 
 
 new Vue({

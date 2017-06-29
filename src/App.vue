@@ -41,10 +41,13 @@
               <router-link to="/customers">Customers</router-link>
             </li>
             <!--<li class="active">-->
-              <!--<router-link to="/todos">Todos</router-link>-->
+            <!--<router-link to="/todos">Todos</router-link>-->
             <!--</li>-->
             <li>
               <router-link to="/comments">Comments</router-link>
+            </li>
+            <li>
+              <router-link to="/maps">Maps</router-link>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->

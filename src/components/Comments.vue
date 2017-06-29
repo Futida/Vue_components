@@ -19,18 +19,18 @@
               Total comments: {{ comments.length }}
             </div>
             <div style="padding-left: 15px">
-              Total answers: {{ totalCommentsLength }}
+              Total answers: {{ totalReplyCommentsLength }}
             </div>
           </div>
-        <div class="sort">
-          Sort by rating:
-          <button class="btn btn-success" @click="sortByRatingUp">
-            <span class="glyphicon glyphicon-arrow-up"></span>
-          </button>
-          <button class="btn btn-success" @click="sortByRatingDown">
-            <span class="glyphicon glyphicon-arrow-down"></span>
-          </button>
-        </div>
+          <div class="sort">
+            Sort by rating:
+            <button class="btn btn-success" @click="sortByRatingUp">
+              <span class="glyphicon glyphicon-arrow-up"></span>
+            </button>
+            <button class="btn btn-success" @click="sortByRatingDown">
+              <span class="glyphicon glyphicon-arrow-down"></span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
         :data="item"
         :index="key"
         :key="key"
-        @totalCommentsLength="replyCommentsLength">
+        @totalReplyCommentsLength="replyCommentsLength">
       </Comment>
     </div>
   </div>
@@ -58,7 +58,7 @@
       return {
         comments: [],
         newComment: '',
-        totalCommentsLength: 0
+        totalReplyCommentsLength: 0
       }
     },
     methods: {
@@ -72,10 +72,9 @@
         this.newComment = ''
       },
       replyCommentsLength: function(length) {
-        this.totalCommentsLength = length
+        this.totalReplyCommentsLength = length
       },
       sortByRatingUp: function() {
-
         function compareUp(a, b) {
           if (a.rating < b.rating)
             return -1;
@@ -86,8 +85,8 @@
         this.comments.sort(compareUp)
       },
       sortByRatingDown: function() {
-
         function compareDown(a, b) {
+            console.log(a,b)
           if (a.rating > b.rating)
             return -1;
           if (a.rating < b.rating)

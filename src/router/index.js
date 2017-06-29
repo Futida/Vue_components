@@ -5,6 +5,7 @@ import News from '../components/News.vue'
 import Customers from '../components/Customers.vue'
 import Todos from '../components/Todos.vue'
 import Comments from '../components/Comments.vue'
+import Maps from '../components/Maps.vue'
 
 
 const routes = [
@@ -14,6 +15,7 @@ const routes = [
   { path: '/customers', component: Customers },
   { path: '/todos', component: Todos },
   { path: '/comments', component: Comments },
+  { path: '/maps', component: Maps },
   { path: '/*', redirect: '/' }
   ];
 

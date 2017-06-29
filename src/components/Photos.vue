@@ -17,6 +17,13 @@
               <div class="media__body">
                 <a href="photo.user.portfolio_url" target="_blank"> {{ photo.user.name }}</a>
               </div>
+              <Maps
+                v-if="photo.user.location"
+                :userLocation="photo.user.location">
+              </Maps>
+              <div v-else>
+                No data
+              </div>
             </div>
           </div>
         </div>
@@ -42,6 +49,7 @@
 
 <script>
   import Pagination from './pagination/Pagination.vue'
+  import Maps from './Maps.vue'
 
   export default {
     data() {
@@ -49,13 +57,13 @@
         appId: 'b522601914f377642e0d91d1f00042d196c83af6f628d8d7d51d6032c7e4cb7e',
         photos: [],
         totalPhotos: 0,
-        perPage: 6,
+        perPage: 4,
         currentPage: 1,
         path_to_largeImg: '',
-        flag: false
+        flag: false,
       }
     },
-    components: { Pagination },
+    components: { Pagination, Maps },
 
     methods: {
       fetchPhotos: function(page) {
@@ -69,7 +77,7 @@
 
         this.$http.get('http://api.unsplash.com/photos', options).then(function(response) {
           this.photos = response.data;
-          //console.log(this.photos);
+          console.log(this.photos);
           this.totalPhotos = parseInt(response.headers.get('x-total'));
           this.currentPage = page;
         }, console.log)
