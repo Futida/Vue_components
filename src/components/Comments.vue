@@ -86,7 +86,6 @@
       },
       sortByRatingDown: function() {
         function compareDown(a, b) {
-            console.log(a,b)
           if (a.rating > b.rating)
             return -1;
           if (a.rating < b.rating)

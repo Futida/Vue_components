@@ -21,7 +21,7 @@
                 v-if="photo.user.location"
                 :userLocation="photo.user.location">
               </Maps>
-              <div v-else>
+              <div v-else style="margin-left: 215px; margin-top: 130px;">
                 No data
               </div>
             </div>
@@ -54,7 +54,7 @@
   export default {
     data() {
       return {
-        appId: '42431486eda2e6beeb3764b7dd89568297766bfe93f8d2e297eebe51510ce3f9',
+        appId: 'b522601914f377642e0d91d1f00042d196c83af6f628d8d7d51d6032c7e4cb7e',
         photos: [],
         totalPhotos: 0,
         perPage: 4,
@@ -67,7 +67,7 @@
 
     methods: {
       fetchPhotos: function(page) {
-        var options = {
+        const options = {
           params: {
             client_id: this.appId,
             page: page,
@@ -75,9 +75,9 @@
           }
         };
 
-        this.$http.get('https://api.unsplash.com/photos', options).then(function(response) {
+        this.$http.get('http://api.unsplash.com/photos', options).then(function(response) {
           this.photos = response.data;
-          //console.log(this.photos);
+          console.log(this.photos);
           this.totalPhotos = parseInt(response.headers.get('x-total'));
           this.currentPage = page;
         }, console.log)
@@ -85,7 +85,7 @@
 
       showModal: function(photo) {
         this.path_to_largeImg = photo.urls.regular;
-        this.flag = true;
+        this.flag = true
       },
       hideModal: function() {
         this.flag = false;

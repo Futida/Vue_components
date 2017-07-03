@@ -18,23 +18,22 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: all 0.2s cubic-bezier(.55,.54,.87,.32);
+  transition: all 0.2s cubic-bezier(.55, .54, .87, .32);
 }
 
 .modal-content {
   position: fixed;
-  top: 200px;
-  left: 500px;
+  left: 25%;
+  top: 10%;
   display: block;
   overflow: auto;
   z-index: 2000;
-  height:600px;
-  width: 800px;
+  height: 500px;
+  width: 700px;
 }
 
 .modal-enter {
   opacity: 0;
-
 }
 
 .modal-leave-active {
@@ -44,7 +43,7 @@
 .close {
   position: absolute;
   top: 5px;
-  left: 775px;
+  left: 670px;
   padding-left: 3px;
   font-weight: bold;
   width: 20px;
@@ -52,6 +51,7 @@
   color: brown;
   background-color: coral;
   border-radius: 2px;
+
 }
 
 .close:hover {
@@ -154,10 +154,11 @@
 }
 
 .pagination__left, .pagination__right {
-  width: 20%;
+  width: 10%;
+  height: 10px;
 }
 
-.pagination__left {
+.pagination__left a {
   float: left;
 }
 
@@ -174,14 +175,14 @@
   text-align: center;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 300;
-  line-height: 42px;
-  height: 44px;
+  /*line-height: 42px;*/
+  /*height: 30px;*/
   color: #999;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .pagination a {
-  padding: 0 20px;
+  padding: 0 10px;
   max-width: 160px;
   background-color: transparent;
   border-radius: 4px;

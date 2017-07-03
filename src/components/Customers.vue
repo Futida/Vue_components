@@ -139,7 +139,6 @@
       hideModal: function() {
         this.flag = false
       }
-
     }
   }
 </script>

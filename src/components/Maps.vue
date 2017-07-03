@@ -1,15 +1,28 @@
 <template>
-  <gmap-map
-    :center="center"
-    :zoom="11"
-    style="width: 490px; height: 300px">
-    <gmap-marker
-      :position="center"
-      :clickable="true"
-      :draggable="true"
-      @click="center=markerPosition">
-    </gmap-marker>
-  </gmap-map>
+  <div>
+    <gmap-map
+      :center="center"
+      :zoom="10"
+      style="width: 490px; height: 300px">
+      <gmap-marker
+        :position="center"
+        :clickable="true"
+        :draggable="true"
+        @click="center=markerPosition">
+      </gmap-marker>
+    </gmap-map>
+
+    <!--<div>-->
+      <!--<ul>-->
+        <!--<li @mouseenter="showHint" @mouseleave="hideHint">1-->
+          <!--<div class="hint"> first element </div>-->
+        <!--</li>-->
+        <!--<li @mouseenter="showHint">2-->
+          <!--<div> second element </div>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  </div>
 </template>
 
 <script>
@@ -20,10 +33,9 @@
     data(){
       return {
         center: {
-          lat: 0,
-          lng: 0
+          lat: 55.75,
+          lng: 37.62
         },
-        markerPosition: []
       }
     },
     methods: {
@@ -36,7 +48,17 @@
             coord.lng = result[0].geometry.location.lng();
           }
         })
-      }
+      },
+      showHint: function(e) {
+        if (e.target.tagName === 'LI') {
+          e.target.children[0].classList.add('showHint')
+        }
+      },
+      hideHint: function(e) {
+        if (e.target.tagName === 'LI') {
+          e.target.children[0].classList.remove('showHint')
+        }
+      },
     },
     created: function() {
       this.getCoord()
@@ -45,4 +67,4 @@
 
 </script>
 
-<style></style>
+<style src="../css/maps.css"></style>
