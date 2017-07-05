@@ -1,6 +1,5 @@
 <template>
   <div style="margin-top: 15px">
-
     <gmap-map
       :center="center"
       :zoom="10"
@@ -44,7 +43,7 @@
     },
     watch: {
       userLocation: function() {
-        this.getCoord()
+        this.getCoord();
       }
     },
     methods: {
