@@ -9,6 +9,19 @@
   margin-top: 90px;
 }
 
+.user-location {
+  display: block;
+  float: right;
+
+}
+.user-location a{
+  font-family: "Andale Mono";
+  font-style: italic;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 /*Модальное окно*/
 .modal {
   display: block;

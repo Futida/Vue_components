@@ -68,7 +68,7 @@
     },
     computed: {
       searching() {
-         let comments = this.comments;
+        let comments = this.comments;
         if (this.finding) {
           comments = comments.filter(item => {
             return item.comment.toLowerCase().indexOf(this.finding) > -1

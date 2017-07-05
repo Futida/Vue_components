@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: 15px">
     <gmap-map
       :center="center"
       :zoom="10"

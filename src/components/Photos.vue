@@ -17,6 +17,9 @@
               <div class="media__body">
                 <a href="photo.user.portfolio_url" target="_blank"> {{ photo.user.name }}</a>
               </div>
+              <span class="user-location">
+                <a :href="'https://yandex.ru/search/?text=' + photo.user.location">User location</a>
+              </span>
               <Maps
                 v-if="photo.user.location"
                 :userLocation="photo.user.location">
@@ -61,6 +64,7 @@
         currentPage: 1,
         path_to_largeImg: '',
         flag: false,
+        userLocation: ''
       }
     },
     components: { Pagination, Maps },
