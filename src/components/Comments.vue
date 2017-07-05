@@ -31,12 +31,16 @@
               <span class="glyphicon glyphicon-arrow-down"></span>
             </button>
           </div>
+          <div style="float: left; width: 100%">
+            <span>Search:</span>
+            <input type="text" placeholder="Search ..." v-model="finding">
+          </div>
         </div>
       </div>
     </div>
     <div class="container-fluid">
       <Comment
-        v-for="(item, key) in comments"
+        v-for="(item, key) in searching"
         :data="item"
         :index="key"
         :key="key"
@@ -56,9 +60,20 @@
 
     data(){
       return {
-        comments: [],
+        comments: [{ comment: 'her', rating: 100 }],
         newComment: '',
-        totalReplyCommentsLength: 0
+        totalReplyCommentsLength: 0,
+        finding: ''
+      }
+    },
+    computed: {
+      searching() {
+        let comments = this.comments;
+        if (this.finding) {
+          comments = comments.filter(item => {
+              return item.comment.toLowerCase().indexOf(this.finding) > -1})
+        }
+        return comments;
       }
     },
     methods: {
