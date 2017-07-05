@@ -60,7 +60,7 @@
 
     data(){
       return {
-        comments: [{ comment: 'her', rating: 100 }],
+        comments: [{ comment: 'comment', rating: 100 }],
         newComment: '',
         totalReplyCommentsLength: 0,
         finding: ''
@@ -68,10 +68,11 @@
     },
     computed: {
       searching() {
-        let comments = this.comments;
+         let comments = this.comments;
         if (this.finding) {
           comments = comments.filter(item => {
-              return item.comment.toLowerCase().indexOf(this.finding) > -1})
+            return item.comment.toLowerCase().indexOf(this.finding) > -1
+          })
         }
         return comments;
       }
