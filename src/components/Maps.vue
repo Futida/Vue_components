@@ -1,5 +1,6 @@
 <template>
   <div style="margin-top: 15px">
+
     <gmap-map
       :center="center"
       :zoom="10"
@@ -11,17 +12,16 @@
         @click="center=markerPosition">
       </gmap-marker>
     </gmap-map>
-
-    <!--<div>-->
-      <!--<ul>-->
-        <!--<li @mouseenter="showHint" @mouseleave="hideHint">1-->
-          <!--<div class="hint"> first element </div>-->
-        <!--</li>-->
-        <!--<li @mouseenter="showHint">2-->
-          <!--<div> second element </div>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</div>-->
+    <div>
+      <ul>
+        <li @mouseenter="showHint" @mouseleave="hideHint">1
+          <div class="hint"> first element </div>
+        </li>
+        <li @mouseenter="showHint">2
+          <div> second element </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -33,9 +33,18 @@
     data(){
       return {
         center: {
-          lat: 55.75,
-          lng: 37.62
+          lat: 0,
+          lng: 0
         },
+      }
+    },
+
+    created() {
+      this.getCoord();
+    },
+    watch: {
+      userLocation: function() {
+        this.getCoord()
       }
     },
     methods: {
@@ -47,7 +56,8 @@
             coord.lat = result[0].geometry.location.lat();
             coord.lng = result[0].geometry.location.lng();
           }
-        })
+        });
+
       },
       showHint: function(e) {
         if (e.target.tagName === 'LI') {
@@ -60,9 +70,6 @@
         }
       },
     },
-    created: function() {
-      this.getCoord()
-    }
   }
 
 </script>

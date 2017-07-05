@@ -8,18 +8,18 @@
       </Pagination>
       <div class="container-fluid">
         <div class="grid">
-          <div class="grid__item card" v-for='(photo, key) in photos' :key='key'>
+          <div class="grid__item card" v-for='(photo, key) in photos'>
             <div class="card__body">
               <img :src="photo.urls.small" alt="" @click="showModal(photo)">
             </div>
             <div class="card__footer media">
               <img :src="photo.user.profile_image.small" alt="" class="media__obj">
               <div class="media__body">
-                <a href="photo.user.portfolio_url" target="_blank"> {{ photo.user.name }}</a>
+                <a :href="photo.user.portfolio_url" target="_blank"> {{ photo.user.name }}</a>
               </div>
               <span class="user-location">
-                <a :href="'https://www.google.ru/#newwindow=1&q=' + photo.user.location">User location</a>
-              </span>
+      <a :href="'https://www.google.ru/#newwindow=1&q=' + photo.user.location">User location</a>
+      </span>
               <Maps
                 v-if="photo.user.location"
                 :userLocation="photo.user.location">
