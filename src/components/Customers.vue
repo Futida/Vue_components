@@ -132,7 +132,7 @@
         this.showModal();
       },
       showModal: function() {
-        // alert('Are you sure remove this customer?');
+        // alert('Are you sure to remove this customer?');
         this.flag = true;
         setTimeout(this.hideModal, 2000);
       },

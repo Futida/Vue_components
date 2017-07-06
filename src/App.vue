@@ -63,6 +63,10 @@
 
 
 <style>
+  /*импорт стилей для корректного отображения карты*/
+
+  @import "../node_modules/leaflet/dist/leaflet.css";
+
 
   #home:hover .popupContainer {
     z-index: 20;
@@ -151,4 +155,6 @@
     display: block;
     width: 50px;
   }
+
+
 </style>

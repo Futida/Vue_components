@@ -11,11 +11,10 @@ Vue.use(VueResource);
 Vue.use(VueRouter);
 Vue.use(VueFire);
 Vue.use(VueGoogleMaps, {
-  load:{
-    key:'AIzaSyDmlY00L3Y6ZqFYMxdDRE0FnmJWnYG6vIs'
+  load: {
+    key: 'AIzaSyDmlY00L3Y6ZqFYMxdDRE0FnmJWnYG6vIs'
   }
 });
-
 
 new Vue({
   el: '#app',
