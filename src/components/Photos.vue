@@ -78,6 +78,7 @@
             per_page: this.perPage
           }
         };
+
         this.$http.get('http://api.unsplash.com/photos', options).then(function(response) {
           this.photos = response.data;
           console.log(this.photos);
