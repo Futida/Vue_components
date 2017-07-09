@@ -1,10 +1,7 @@
 <template>
   <div id="app_photos">
     <div class="container">
-      <Pagination :current="currentPage"
-                  :total="totalPhotos"
-                  :perPage="perPage"
-                  @page-changed="fetchPhotos">
+      <Pagination :current="currentPage" :total="totalPhotos" :perPage="perPage" @page-changed="fetchPhotos">
       </Pagination>
       <div class="container-fluid">
         <div class="grid">
@@ -16,10 +13,11 @@
               <img :src="photo.user.profile_image.small" alt="" class="media__obj">
               <div class="media__body">
                 <a :href="photo.user.portfolio_url" target="_blank"> {{ photo.user.name }}</a>
+                <span class="user-location">
+                  <a :href="'https://www.google.ru/#newwindow=1&q=' + photo.user.location" target="_blank">User location</a>
+                </span>
               </div>
-              <Maps
-                v-if="photo.user.location"
-                :userLocation="photo.user.location">
+              <Maps v-if="photo.user.location" :userLocation="photo.user.location">
               </Maps>
               <div v-else>
                 No data
@@ -28,13 +26,10 @@
           </div>
         </div>
       </div>
-
-      <Pagination :current="currentPage"
-                  :total="totalPhotos"
-                  :perPage="perPage"
-                  @page-changed="fetchPhotos">
+  
+      <Pagination :current="currentPage" :total="totalPhotos" :perPage="perPage" @page-changed="fetchPhotos">
       </Pagination>
-
+  
       <transition name="modal">
         <div class="modal" v-show="flag">
           <div class="modal-content">
@@ -48,53 +43,53 @@
 </template>
 
 <script>
-  import Pagination from './pagination/Pagination.vue'
-  import Maps from './Maps.vue'
+import Pagination from './pagination/Pagination.vue'
+import Maps from './Maps.vue'
 
-  export default {
-    data() {
-      return {
-        appId: '42431486eda2e6beeb3764b7dd89568297766bfe93f8d2e297eebe51510ce3f9',
-        photos: [],
-        totalPhotos: 0,
-        perPage: 4,
-        currentPage: 1,
-        path_to_largeImg: '',
-        flag: false,
-      }
-    },
-    components: { Pagination, Maps },
-
-    methods: {
-      fetchPhotos: function(page) {
-        var options = {
-          params: {
-            client_id: this.appId,
-            page: page,
-            per_page: this.perPage
-          }
-        };
-
-        this.$http.get('http://api.unsplash.com/photos', options).then(function(response) {
-          this.photos = response.data;
-          //console.log(this.photos);
-          this.totalPhotos = parseInt(response.headers.get('x-total'));
-          this.currentPage = page;
-        }, console.log)
-      },
-
-      showModal: function(photo) {
-        this.path_to_largeImg = photo.urls.regular;
-        this.flag = true;
-      },
-      hideModal: function() {
-        this.flag = false;
-      }
-    },
-    created: function() {
-      this.fetchPhotos(this.currentPage)
+export default {
+  data() {
+    return {
+      appId: '42431486eda2e6beeb3764b7dd89568297766bfe93f8d2e297eebe51510ce3f9',
+      photos: [],
+      totalPhotos: 0,
+      perPage: 4,
+      currentPage: 1,
+      path_to_largeImg: '',
+      flag: false,
     }
+  },
+  components: { Pagination, Maps },
+
+  methods: {
+    fetchPhotos: function (page) {
+      var options = {
+        params: {
+          client_id: this.appId,
+          page: page,
+          per_page: this.perPage
+        }
+      };
+
+      this.$http.get('http://api.unsplash.com/photos', options).then(function (response) {
+        this.photos = response.data;
+        //console.log(this.photos);
+        this.totalPhotos = parseInt(response.headers.get('x-total'));
+        this.currentPage = page;
+      }, console.log)
+    },
+
+    showModal: function (photo) {
+      this.path_to_largeImg = photo.urls.regular;
+      this.flag = true;
+    },
+    hideModal: function () {
+      this.flag = false;
+    }
+  },
+  created: function () {
+    this.fetchPhotos(this.currentPage)
   }
+}
 </script>
 
 <style src="../css/photos.css"></style>
