@@ -8,7 +8,7 @@
         </div>
         <div class="panel-body">
           <form class="form" @submit.prevent="addComment">
-            <div class="form-group">
+            <div class="form-group pull-left">
               <label for="comment">Comment</label>
               <input type="text" id="comment" class="form-control" v-model="newComment">
             </div>
@@ -39,12 +39,7 @@
       </div>
     </div>
     <div class="container-fluid">
-      <Comment
-        v-for="(item, key) in searching"
-        :data="item"
-        :index="key"
-        :key="key"
-        @totalReplyCommentsLength="replyCommentsLength">
+      <Comment v-for="(item, key) in searching" :data="item" :index="key" :key="key" @totalReplyCommentsLength="replyCommentsLength">
       </Comment>
     </div>
   </div>
@@ -52,67 +47,127 @@
 
 <script>
 
-  import Comment from './comments/Comment.vue'
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import Comment from './comments/Comment.vue'
 
-  export default{
+@Component({
+  components: { Comment }
+})
 
-    components: { Comment },
+export default class Comments extends Vue {
 
-    data(){
-      return {
-        comments: [{ comment: 'comment', rating: 100 }],
-        newComment: '',
-        totalReplyCommentsLength: 0,
-        finding: ''
-      }
-    },
-    computed: {
-      searching() {
-        let comments = this.comments;
-        if (this.finding) {
-          comments = comments.filter(item => {
-            return item.comment.toLowerCase().indexOf(this.finding) > -1
-          })
-        }
-        return comments;
-      }
-    },
-    methods: {
-      addComment: function() {
-        if (this.newComment && this.newComment.length) {
-          this.comments.push({
-            comment: this.newComment,
-            rating: 0
-          })
-        }
-        this.newComment = ''
-      },
-      replyCommentsLength: function(length) {
-        this.totalReplyCommentsLength = length
-      },
-      sortByRatingUp: function() {
-        function compareUp(a, b) {
-          if (a.rating < b.rating)
-            return -1;
-          if (a.rating > b.rating)
-            return 1;
-        }
+  comments = [{ comment: 'comment', rating: 100 }]
+  newComment = '';
+  totalReplyCommentsLength = 0;
+  finding = '';
 
-        this.comments.sort(compareUp)
-      },
-      sortByRatingDown: function() {
-        function compareDown(a, b) {
-          if (a.rating > b.rating)
-            return -1;
-          if (a.rating < b.rating)
-            return 1;
-        }
-
-        this.comments.sort(compareDown)
-
-      }
+  get searching() {
+    let comments = this.comments;
+    if (this.finding) {
+      comments = comments.filter(item => {
+        return item.comment.toLowerCase().indexOf(this.finding) > -1
+      })
     }
+    return comments;
+  };
+
+  addComment() {
+    if (this.newComment && this.newComment.length) {
+      this.comments.push({
+        comment: this.newComment,
+        rating: 0
+      })
+    }
+    this.newComment = ''
+  };
+
+  replyCommentsLength(length) {
+    this.totalReplyCommentsLength = length
+  };
+
+  sortByRatingUp() {
+    function compareUp(a, b) {
+      if (a.rating < b.rating)
+        return -1;
+      if (a.rating > b.rating)
+        return 1;
+    }
+    this.comments.sort(compareUp)
+  };
+
+  sortByRatingDown() {
+    function compareDown(a, b) {
+      if (a.rating > b.rating)
+        return -1;
+      if (a.rating < b.rating)
+        return 1;
+    }
+    this.comments.sort(compareDown)
   }
+}
+
+  // import Comment from './comments/Comment.vue'
+
+  // export default{
+
+  //   components: { Comment },
+
+  //   data(){
+  //     return {
+  //       comments: [{ comment: 'comment', rating: 100 }],
+  //       newComment: '',
+  //       totalReplyCommentsLength: 0,
+  //       finding: ''
+  //     }
+  //   },
+  //   computed: {
+  //     searching() {
+  //       let comments = this.comments;
+  //       if (this.finding) {
+  //         comments = comments.filter(item => {
+  //           return item.comment.toLowerCase().indexOf(this.finding) > -1
+  //         })
+  //       }
+  //       return comments;
+  //     }
+  //   },
+  //   methods: {
+  //     addComment: function() {
+  //       if (this.newComment && this.newComment.length) {
+  //         this.comments.push({
+  //           comment: this.newComment,
+  //           rating: 0
+  //         })
+  //       }
+  //       this.newComment = ''
+  //     },
+  //     replyCommentsLength: function(length) {
+  //       this.totalReplyCommentsLength = length
+  //     },
+  //     sortByRatingUp: function() {
+  //       function compareUp(a, b) {
+  //         if (a.rating < b.rating)
+  //           return -1;
+  //         if (a.rating > b.rating)
+  //           return 1;
+  //       }
+
+  //       this.comments.sort(compareUp)
+  //     },
+  //     sortByRatingDown: function() {
+  //       function compareDown(a, b) {
+  //         if (a.rating > b.rating)
+  //           return -1;
+  //         if (a.rating < b.rating)
+  //           return 1;
+  //       }
+
+  //       this.comments.sort(compareDown)
+
+  //     }
+  //   }
+  // }
 
 </script>
 
