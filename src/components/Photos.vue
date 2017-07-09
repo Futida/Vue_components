@@ -16,8 +16,6 @@
               <img :src="photo.user.profile_image.small" alt="" class="media__obj">
               <div class="media__body">
                 <a :href="photo.user.portfolio_url" target="_blank"> {{ photo.user.name }}</a>
-                
-                <a :href="photo.user.portfolio_url" target="_blank"> User Location</a>
               </div>
               <Maps
                 v-if="photo.user.location"
