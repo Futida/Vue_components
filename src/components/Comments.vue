@@ -39,7 +39,11 @@
       </div>
     </div>
     <div class="container-fluid">
-      <Comment v-for="(item, key) in searching" :data="item" :index="key" :key="key" @totalReplyCommentsLength="replyCommentsLength">
+      <Comment v-for="(item, key) in searching"
+               :data="item"
+               :index="key"
+               :key="key"
+               @totalReplyCommentsLength="replyCommentsLength">
       </Comment>
     </div>
   </div>
@@ -47,65 +51,67 @@
 
 <script>
 
-import Vue from 'vue'
-import Component from 'vue-class-component'
-import Comment from './comments/Comment.vue'
+  import Vue from 'vue'
+  import Component from 'vue-class-component'
+  import Comment from './comments/Comment.vue'
 
-@Component({
-  components: { Comment }
-})
+  @Component({
+    components: { Comment }
+  })
 
-export default class Comments extends Vue {
+  export default class Comments extends Vue {
 
-  comments = [{ comment: 'comment', rating: 100 }]
-  newComment = '';
-  totalReplyCommentsLength = 0;
-  finding = '';
+    comments = [{ comment: 'comment', rating: 100 }];
+    newComment = '';
+    totalReplyCommentsLength = 0;
+    finding = '';
 
-  get searching() {
-    let comments = this.comments;
-    if (this.finding) {
-      comments = comments.filter(item => {
-        return item.comment.toLowerCase().indexOf(this.finding) > -1
-      })
+    get searching() {
+      let comments = this.comments;
+      if (this.finding) {
+        comments = comments.filter(item => {
+          return item.comment.toLowerCase().indexOf(this.finding) > -1
+        })
+      }
+      return comments;
+    };
+
+    addComment() {
+      if (this.newComment && this.newComment.length) {
+        this.comments.push({
+          comment: this.newComment,
+          rating: 0
+        })
+      }
+      this.newComment = ''
+    };
+
+    replyCommentsLength(length) {
+      this.totalReplyCommentsLength = length
+    };
+
+    sortByRatingUp() {
+      function compareUp(a, b) {
+        if (a.rating < b.rating)
+          return -1;
+        if (a.rating > b.rating)
+          return 1;
+      }
+
+      this.comments.sort(compareUp)
+    };
+
+    sortByRatingDown() {
+      function compareDown(a, b) {
+        if (a.rating > b.rating)
+          return -1;
+        if (a.rating < b.rating)
+          return 1;
+      }
+
+      this.comments.sort(compareDown)
     }
-    return comments;
-  };
-
-  addComment() {
-    if (this.newComment && this.newComment.length) {
-      this.comments.push({
-        comment: this.newComment,
-        rating: 0
-      })
-    }
-    this.newComment = ''
-  };
-
-  replyCommentsLength(length) {
-    this.totalReplyCommentsLength = length
-  };
-
-  sortByRatingUp() {
-    function compareUp(a, b) {
-      if (a.rating < b.rating)
-        return -1;
-      if (a.rating > b.rating)
-        return 1;
-    }
-    this.comments.sort(compareUp)
-  };
-
-  sortByRatingDown() {
-    function compareDown(a, b) {
-      if (a.rating > b.rating)
-        return -1;
-      if (a.rating < b.rating)
-        return 1;
-    }
-    this.comments.sort(compareDown)
   }
-}
 
   // import Comment from './comments/Comment.vue'
 
