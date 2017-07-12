@@ -177,4 +177,4 @@
 
 </script>
 
-<style lang='scss' src="../css/comments.scss"></style>
+<style lang="scss" src="../css/comments.scss"></style>
