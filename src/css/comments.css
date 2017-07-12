@@ -7,9 +7,6 @@
   display: grid;
   justify-content: flex-end;
   align-items: center;
-  button{
-    padding: 0;
-  }
 }
 
 .sort {
