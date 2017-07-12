@@ -4,16 +4,24 @@
 }
 
 .statisticsComments {
-  display: block;
-  margin-left: 941px;
-  padding: 10px;
-  line-height: 1.5em;
-
+  display: grid;
+  justify-content: flex-end;
+  align-items: center;
+  button{
+    padding: 0;
+  }
 }
-.sort{
-  display: block;
-  padding: 10px;
-  float: right;
+
+.sort {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.form{
+  display: flex;
+  align-items: center;
 }
 
 /*modalReply*/

@@ -31,9 +31,9 @@
               <span class="glyphicon glyphicon-arrow-down"></span>
             </button>
           </div>
-          <div style="float: left; width: 100%">
+          <div>
             <span>Search:</span>
-            <input type="text" placeholder="Search ..." v-model="finding">
+            <input type="text" placeholder="Search ..." v-model="finding" style="border:1px solid grey">
           </div>
         </div>
       </div>
@@ -177,4 +177,4 @@
 
 </script>
 
-<style src="../css/comments.css"></style>
+<style lang='scss' src="../css/comments.scss"></style>

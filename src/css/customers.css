@@ -1,18 +1,18 @@
 .alert-success {
   position: fixed;
-  top: 90px;
-  left: 1395px;
-  background-color: lightgreen;
-  display: block;
-  border-radius: 10px;
+  top: 15%;
+  left: 74%;
   transition: all .5s ease;
+  /*!*background-color: lightgreen;*!*/
+  /*display: block;*/
+  /*!*border-radius: 20px;*!*/
 }
 
-.alert-success_container {
-  padding: 10px;
-  color: white;
-  text-shadow: 1px 1px 1px red;
-}
+/*.alert-success_container {*/
+  /*padding: 10px;*/
+  /*color: white;*/
+  /*text-shadow: 1px 1px 1px red;*/
+/*}*/
 
 .alert-enter {
   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);

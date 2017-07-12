@@ -28,6 +28,7 @@
               <label for="country"> Country:</label>
               <input type="text" id="country" class="form-control" v-model="newCustomer.country">
             </div>
+            <v-btn type="submit" primary light>Add Customer</v-btn>
             <input type="submit" class="btn btn-primary" value="Add Customer">
           </form>
         </div>
@@ -76,13 +77,17 @@
         </div>
       </div>
 
+
       <!--removal alert-->
       <transition name="alert">
-        <div class="alert-success" v-show="flag">
-          <div class="alert-success_container">
-            <span>Успешно удалено</span>
-          </div>
-        </div>
+        <v-alert warning value="true" class="alert-success" transition="scale-transition" v-show="flag">
+          Успешно удалено
+        </v-alert>
+        <!--<div class="alert-success" v-show="flag">-->
+        <!--<div class="alert-success_container">-->
+        <!--<span>Успешно удалено</span>-->
+        <!--</div>-->
+        <!--</div>-->
       </transition>
     </div>
   </div>
