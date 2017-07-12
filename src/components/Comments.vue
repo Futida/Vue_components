@@ -7,10 +7,11 @@
           <h3>Add comment</h3>
         </div>
         <div class="panel-body">
-          <form class="form" @submit.prevent="addComment">
-            <div class="form-group pull-left">
+          <form class="form" style="display: block" @submit.prevent="addComment">
+            <div class="form-group">
               <label for="comment">Comment</label>
-              <input type="text" id="comment" class="form-control" v-model="newComment">
+              <textarea type="text" id="comment" class="form-control" v-model="newComment" cols="100" rows="5">
+              </textarea>
             </div>
             <input type="submit" class="btn btn-primary" value="Add Comment">
           </form>

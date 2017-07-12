@@ -5,8 +5,8 @@
         <span>
           <span> Rating: {{ data.rating }} </span>
           <div class="btn-group btn-group-xs">
-            <button class="buttonRating btn btn-warning" @click="upRating">up</button>
-            <button class="buttonRating btn btn-warning" @click="downRating" v-show="this.data.rating > 0">down</button>
+            <button class="btn btn-warning buttonRating" @click="upRating">up</button>
+            <button class="btn btn-warning buttonRating" @click="downRating" v-show="this.data.rating > 0">down</button>
           </div>
 
         </span>
@@ -109,4 +109,4 @@
 
 </script>
 
-<style src="../../css/comments.css"></style>
+<style lang="scss" src="../../css/comments.scss"></style>
