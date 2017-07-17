@@ -8,11 +8,12 @@
             <button class="btn btn-warning buttonRating" @click="upRating">up</button>
             <button class="btn btn-warning buttonRating" @click="downRating" v-show="data.rating > 0">down</button>
           </div>
-
-          <button class="btn btn-danger" @click="deleteComment">Delete comment</button>
-
         </span>
         <span class="pull-right"> Date: {{ data.date }} </span>
+        <div class="delete-icon">
+          <v-icon class="orange--text text--darken-2" @click="deleteComment">delete</v-icon>
+          <span class="delete-icon__hint">delete comment</span>
+        </div>
       </div>
       <div class="panel-body">
         {{ data.comment }}
@@ -75,9 +76,9 @@
       },
       showReplyModal: function() {
         this.flag = true;
-        setTimeout( () => {
+        setTimeout(() => {
           this.$refs.ta.focus();
-        },0);
+        }, 0);
 
       },
       closeReplyModal: function() {
