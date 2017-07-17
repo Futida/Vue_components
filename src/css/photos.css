@@ -6,7 +6,6 @@
 #app_photos {
   margin: 0 auto;
   width: 100%;
-  margin-top: 90px;
 }
 
 .user-location {
@@ -161,7 +160,7 @@
   height: 44px;
   display: flex;
   justify-content: space-between;
-  margin: 30px auto 30px;
+  margin: 5px 0 25px 0px;
   padding: 0 15px;
   max-width: 1280px;
 }

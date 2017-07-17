@@ -10,7 +10,7 @@
           <form class="form" style="display: block" @submit.prevent="addComment">
             <div class="form-group">
               <label for="comment">Comment</label>
-              <textarea type="text" id="comment" class="form-control" v-model="newComment" cols="100" rows="5">
+              <textarea type="text" id="comment" class="form-control" v-model="newComment.comment" cols="100" rows="5">
               </textarea>
             </div>
             <input type="submit" class="btn btn-primary" value="Add Comment">
@@ -19,9 +19,9 @@
             <div>
               Total comments: {{ comments.length }}
             </div>
-            <div style="padding-left: 15px">
-              Total answers: {{ totalReplyCommentsLength }}
-            </div>
+            <!--<div style="padding-left: 15px">-->
+              <!--Total answers: {{ totalReplyCommentsLength }}-->
+            <!--</div>-->
           </div>
           <div class="sort">
             Sort by rating:
@@ -44,7 +44,10 @@
                :data="item"
                :index="key"
                :key="key"
-               @totalReplyCommentsLength="replyCommentsLength">
+               :date="date()"
+               @totalReplyCommentsLength="replyCommentsLength"
+               @deleteComment="deleteComment"
+               @updateRating="updateRating">
       </Comment>
     </div>
   </div>
@@ -55,37 +58,50 @@
   import Vue from 'vue'
   import Component from 'vue-class-component'
   import Comment from './comments/Comment.vue'
+  import db from '../firebase'
+
+
+  let commentsRef = db.ref('comments');
 
   @Component({
-    components: { Comment }
+    components: { Comment },
+    firebase: { comments: commentsRef }
   })
 
   export default class Comments extends Vue {
 
-    comments = [{ comment: 'comment', rating: 100 }];
-    newComment = '';
+    newComment = {
+      comment: '',
+      rating: 0,
+    };
     totalReplyCommentsLength = 0;
     finding = '';
 
     get searching() {
-      let comments = this.comments;
+      let commentsList = this.comments;
       if (this.finding) {
-        comments = comments.filter(item => {
+        commentsList = commentsList.filter(item => {
           return item.comment.toLowerCase().indexOf(this.finding) > -1
         })
       }
-      return comments;
+      return commentsList;
     };
 
     addComment() {
-      if (this.newComment && this.newComment.length) {
-        this.comments.push({
-          comment: this.newComment,
-          rating: 0
-        })
+      if (this.newComment.comment && this.newComment.comment.length) {
+        this.newComment.date = this.date();
+        commentsRef.push(this.newComment);
       }
-      this.newComment = ''
+      this.newComment.comment = '';
     };
+
+    deleteComment(item) {
+      commentsRef.child(item['.key']).remove();
+    }
+
+    updateRating(item) {
+     commentsRef.child(item['.key']).update({rating:item.rating})
+    }
 
     replyCommentsLength(length) {
       this.totalReplyCommentsLength = length
@@ -100,7 +116,8 @@
       }
 
       this.comments.sort(compareUp)
-    };
+    }
+    ;
 
     sortByRatingDown() {
       function compareDown(a, b) {
@@ -111,6 +128,24 @@
       }
 
       this.comments.sort(compareDown)
+    }
+    ;
+
+    date() {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = getMonth();
+      var day = date.getDate();
+      var time = date.toLocaleString();
+      // var fullData = year + " " + month + " " + day + " " + time;
+      return time;
+      function getMonth() {
+        let month = date.getMonth();
+        if (month < 10) {
+          var m = "0" + month
+        }
+        return m;
+      }
     }
   }
 

@@ -6,11 +6,13 @@
           <span> Rating: {{ data.rating }} </span>
           <div class="btn-group btn-group-xs">
             <button class="btn btn-warning buttonRating" @click="upRating">up</button>
-            <button class="btn btn-warning buttonRating" @click="downRating" v-show="this.data.rating > 0">down</button>
+            <button class="btn btn-warning buttonRating" @click="downRating" v-show="data.rating > 0">down</button>
           </div>
 
+          <button class="btn btn-danger" @click="deleteComment">Delete comment</button>
+
         </span>
-        <span class="pull-right"> Date: {{ date }} </span>
+        <span class="pull-right"> Date: {{ data.date }} </span>
       </div>
       <div class="panel-body">
         {{ data.comment }}
@@ -25,7 +27,7 @@
     <ReplyComments :replyComment="el" v-for="(el,key) in replyComments" :key="key" :date="date"></ReplyComments>
 
     <transition name="modalReply">
-      <div class="modalReply-mask" v-show="flag">
+      <div class="modalReply-mask" v-show="flag" @keyup.esc="closeReplyModal">
         <div class="modalReply-wrapper">
           <div class="modalReply-container">
 
@@ -34,7 +36,7 @@
                     style="cursor: pointer"></span>
             </div>
             <div class="modalReply-body">
-              <textarea id="1" cols="50" rows="10" v-model="replyComment"></textarea>
+              <textarea ref='ta' id="1" cols="50" rows="10" v-model="replyComment"></textarea>
             </div>
             <div class="modalReply-footer">
               <slot name="footer">
@@ -56,11 +58,11 @@
 
   export default {
     components: { ReplyComments },
-    props: ['data', 'index'],
+    props: ['data', 'index', 'date'],
     data() {
       return {
         flag: false,
-        date: this.date(),
+//        date: this.date(),
         replyComment: '',
         replyComments: [],
         id: 1
@@ -68,8 +70,15 @@
     },
 
     methods: {
+      deleteComment: function() {
+        this.$emit('deleteComment', this.data)
+      },
       showReplyModal: function() {
-        this.flag = true
+        this.flag = true;
+        setTimeout( () => {
+          this.$refs.ta.focus();
+        },0);
+
       },
       closeReplyModal: function() {
         this.flag = false
@@ -84,25 +93,11 @@
       },
       upRating: function() {
         this.data.rating++;
+        this.$emit('updateRating', this.data)
       },
       downRating: function() {
         this.data.rating--;
-      },
-      date() {
-        var date = new Date();
-        var year = date.getFullYear();
-        var month = getMonth();
-        var day = date.getDate();
-        var time = date.toLocaleString();
-        // var fullData = year + " " + month + " " + day + " " + time;
-        return time;
-        function getMonth() {
-          let month = date.getMonth();
-          if (month < 10) {
-            var m = "0" + month
-          }
-          return m;
-        }
+        this.$emit('updateRating', this.data)
       }
     }
   }

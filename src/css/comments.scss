@@ -76,6 +76,9 @@
 
 .modalReply-body {
   margin: 20px 0;
+  textarea{
+    border:1px solid;
+  }
 }
 
 .modalReply-default-button {
