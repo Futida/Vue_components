@@ -20,7 +20,7 @@
               Total comments: {{ comments.length }}
             </div>
             <!--<div style="padding-left: 15px">-->
-              <!--Total answers: {{ totalReplyCommentsLength }}-->
+            <!--Total answers: {{ totalReplyCommentsLength }}-->
             <!--</div>-->
           </div>
           <div class="sort">
@@ -100,7 +100,7 @@
     }
 
     updateRating(item) {
-     commentsRef.child(item['.key']).update({rating:item.rating})
+      commentsRef.child(item['.key']).update({ rating: item.rating })
     }
 
     replyCommentsLength(length) {
@@ -139,6 +139,7 @@
       var time = date.toLocaleString();
       // var fullData = year + " " + month + " " + day + " " + time;
       return time;
+
       function getMonth() {
         let month = date.getMonth();
         if (month < 10) {
@@ -210,6 +211,7 @@
   //     }
   //   }
   // }
+
 
 </script>
 

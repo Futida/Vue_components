@@ -11,8 +11,9 @@
         </span>
         <span class="pull-right"> Date: {{ data.date }} </span>
         <div class="delete-icon">
-          <v-icon class="orange--text text--darken-2" @click="deleteComment">delete</v-icon>
-          <span class="delete-icon__hint">delete comment</span>
+          <v-icon class="orange--text text--darken-2" @click="deleteComment"
+                  v-tooltip:right="{ html:'УДАЛИТЬ' }" >delete
+          </v-icon>
         </div>
       </div>
       <div class="panel-body">

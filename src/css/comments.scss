@@ -32,20 +32,6 @@
 .delete-icon {
   display: flex;
   justify-content: flex-end;
-  &__hint {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-  }
-  &:hover .delete-icon__hint {
-    visibility: visible;
-  }
 }
 
 .statisticsComments {
