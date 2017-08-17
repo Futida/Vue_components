@@ -64,7 +64,8 @@
         currentPage: 1,
         path_to_largeImg: '',
         flag: false,
-        userLocation: ''
+        userLocation: '',
+
       }
     },
     components: { Pagination, Maps },

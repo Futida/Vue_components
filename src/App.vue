@@ -49,6 +49,9 @@
             <li>
               <router-link to="/maps">Maps</router-link>
             </li>
+            <li>
+              <router-link to="/components">Components</router-link>
+            </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -58,25 +61,26 @@
 </template>
 
 <script>
-  export default{}
+  export default {}
 </script>
 
+<style lang="scss">
+  $fa-font-path: "~font-awesome/fonts";
+  @import "~font-awesome/scss/font-awesome.scss";
+</style>
 
 <style>
 
   /*импорт стилей для корректного отображения карты*/
-
   @import "../node_modules/leaflet/dist/leaflet.css";
 
   .leaflet-fake-icon-image-2x {
     background-image: url(../node_modules/leaflet/dist/images/marker-icon-2x.png);
   }
+
   .leaflet-fake-icon-shadow {
     background-image: url(../node_modules/leaflet/dist/images/marker-shadow.png);
   }
-
-
-
 
   #home:hover .popupContainer {
     z-index: 20;

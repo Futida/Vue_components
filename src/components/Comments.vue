@@ -60,7 +60,6 @@
   import Comment from './comments/Comment.vue'
   import db from '../firebase'
 
-
   let commentsRef = db.ref('comments');
 
   @Component({
@@ -132,21 +131,21 @@
     ;
 
     date() {
-      var date = new Date();
-      var year = date.getFullYear();
-      var month = getMonth();
-      var day = date.getDate();
-      var time = date.toLocaleString();
-      // var fullData = year + " " + month + " " + day + " " + time;
+      let date = new Date();
+      let time = date.toLocaleString();
       return time;
+//      let year = date.getFullYear();
+//      let month = getMonth();
+//      let day = date.getDate();
+      // var fullData = year + " " + month + " " + day + " " + time;
 
-      function getMonth() {
-        let month = date.getMonth();
-        if (month < 10) {
-          var m = "0" + month
-        }
-        return m;
-      }
+//      function getMonth() {
+//        let month = date.getMonth();
+//        if (month < 10) {
+//          let m = "0" + month
+//        }
+//        return m;
+//      }
     }
   }
 

@@ -26,6 +26,7 @@
     <!--</li>-->
     <!--</ul>-->
     <!--</div>-->
+
   </div>
 </template>
 
@@ -33,13 +34,14 @@
 
   import Vue2Leaflet from 'vue2-leaflet';
 
+
   export default{
     props: ['userLocation'],
 
     components: {
       'v-map': Vue2Leaflet.Map,
       'v-tilelayer': Vue2Leaflet.TileLayer,
-      'v-marker': Vue2Leaflet.Marker
+      'v-marker': Vue2Leaflet.Marker,
     },
     data(){
       return {

@@ -1,7 +1,11 @@
+.container-fluid{
+  position: relative;
+}
+
 .alert-success {
   position: fixed;
-  top: 15%;
-  left: 74%;
+  top: 14%;
+  left: 70%;
   transition: all .5s ease;
   /*!*background-color: lightgreen;*!*/
   /*display: block;*/

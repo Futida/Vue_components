@@ -6,6 +6,7 @@ import Customers from '../components/Customers.vue'
 import Todos from '../components/Todos.vue'
 import Comments from '../components/Comments.vue'
 import Maps from '../components/Maps.vue'
+import Components from '../components/Components.vue'
 
 
 const routes = [
@@ -16,8 +17,9 @@ const routes = [
   { path: '/todos', component: Todos },
   { path: '/comments', component: Comments },
   { path: '/maps', component: Maps },
+  { path: '/components', component: Components },
   { path: '/*', redirect: '/' }
-  ];
+];
 
 const router = new VueRouter({
   mode: 'history',

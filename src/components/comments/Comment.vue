@@ -42,7 +42,7 @@
             </div>
             <div class="modalReply-footer">
               <slot name="footer">
-                <button class="modal-default-button pull-right" @click="addReplyComment">
+                <button class="btn btn-info pull-right" @click="addReplyComment">
                   Add reply comment
                 </button>
               </slot>

@@ -79,7 +79,7 @@
 
 
       <!--removal alert-->
-      <transition name="alert">
+
         <v-alert warning value="true" class="alert-success" transition="scale-transition" v-show="flag">
           Успешно удалено
         </v-alert>
@@ -88,7 +88,7 @@
         <!--<span>Успешно удалено</span>-->
         <!--</div>-->
         <!--</div>-->
-      </transition>
+
     </div>
   </div>
 </template>
