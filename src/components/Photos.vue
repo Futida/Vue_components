@@ -82,7 +82,6 @@
 
         this.$http.get('http://api.unsplash.com/photos', options).then(function(response) {
           this.photos = response.data;
-          console.log(this.photos);
           this.totalPhotos = parseInt(response.headers.get('x-total'));
           this.currentPage = page;
         }, console.log)

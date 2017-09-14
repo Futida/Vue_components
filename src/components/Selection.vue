@@ -1,13 +1,12 @@
 <template>
   <div class="selection-container">
     <div class="selection-title" @click="showOptions = !showOptions">
-      {{ selected.title }} <i v-if="selected.icon" :class="selected.icon"></i>
-      <i class="fa fa-chevron-down"
-         :class="{rotate:showOptions}"></i>
+      {{ selected[label] }} <i v-if="selected.icon" :class="selected.icon"></i>
+      <i :class="[icon, {rotate:showOptions}]"></i>
     </div>
     <div class="selection-popup" v-if="showOptions">
       <p v-for="(el,index) in options" @click="selectOption(index)">
-        {{ el.title }} <i v-if="el.icon" :class="el.icon"></i>
+        {{ el[label] }} <i v-if="el.icon" :class="el.icon"></i>
       </p>
     </div>
   </div>
@@ -18,10 +17,20 @@
     props: {
       options: {
         type: Array
+      },
+      label: {
+        type: String
+      },
+      icon: {
+        type: Array
       }
     },
-    created() {
-      this.selected = this.options[0]
+    mounted() {
+      this.init();
+      this.getOptions();
+    },
+    watch: {
+      'options': 'getOptions'
     },
     data() {
       return {
@@ -30,10 +39,20 @@
       }
     },
     methods: {
+      getOptions() {
+        this.selected = this.options[0];
+      },
       selectOption(index) {
         this.selected = this.options[index];
-        this.showOptions = false
-
+        this.showOptions = false;
+        this.$emit('select', this.selected, 'sort');
+      },
+      init() {
+        document.body.addEventListener('click', (e) => {
+          if (!e.target.closest('.selection-container')) {
+            this.showOptions = false;
+          }
+        });
       }
     }
   }

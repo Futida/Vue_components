@@ -16,9 +16,9 @@
   export default {
     name: 'Tree',
     props: ['items'],
-//    created() {
-//      console.log(this.model)
-//    },
+    created() {
+      console.log(this.model)
+    },
     data() {
       return {
         isOpen: false

@@ -15,7 +15,10 @@
     </div>
     <div>
       <h3>Selection</h3>
-      <Selection :options="options"></Selection>
+      <Selection :options="options"
+                 label="title"
+                 :icon="icon">
+      </Selection>
     </div>
     <div>
       <table>
@@ -68,6 +71,8 @@
           { title: 'По сроку поставки', icon: 'fa fa-long-arrow-down' },
           { title: 'По сроку поставки', icon: 'fa fa-long-arrow-up' },
         ],
+        icon: ['fa fa-chevron-down'],
+
         arr: []
       }
     },

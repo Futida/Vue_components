@@ -94,11 +94,11 @@
       this.newComment.comment = '';
     };
 
-    deleteComment(item) {
+    static deleteComment(item) {
       commentsRef.child(item['.key']).remove();
     }
 
-    updateRating(item) {
+    static updateRating(item) {
       commentsRef.child(item['.key']).update({ rating: item.rating })
     }
 
@@ -130,7 +130,7 @@
     }
     ;
 
-    date() {
+    static date() {
       let date = new Date();
       let time = date.toLocaleString();
       return time;
