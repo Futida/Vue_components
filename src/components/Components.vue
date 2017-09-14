@@ -71,7 +71,7 @@
           { title: 'По сроку поставки', icon: 'fa fa-long-arrow-down' },
           { title: 'По сроку поставки', icon: 'fa fa-long-arrow-up' },
         ],
-        icon: ['fa fa-chevron-down'],
+        icon: 'fa fa-chevron-down',
 
         arr: []
       }

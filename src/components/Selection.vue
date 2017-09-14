@@ -22,7 +22,7 @@
         type: String
       },
       icon: {
-        type: Array
+        type: String
       }
     },
     mounted() {
