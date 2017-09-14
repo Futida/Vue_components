@@ -22,7 +22,8 @@
         type: String
       },
       icon: {
-        type: String
+        type: String,
+        default: 'fa fa-chevron-down'
       }
     },
     mounted() {
