@@ -18,7 +18,9 @@
                 <a :href="photo.user.portfolio_url" target="_blank"> {{ photo.user.name }}</a>
               </div>
               <span class="user-location">
-                  <a :href="'https://www.google.ru/#newwindow=1&q=' + photo.user.location" target="_blank">User location</a>
+                  <a :href="'https://www.google.ru/#newwindow=1&q=' + photo.user.location" target="_blank">
+                    User location: {{ photo.user.location ? photo.user.location : 'no data' }}
+                  </a>
               </span>
               <Maps
                 v-if="photo.user.location"
