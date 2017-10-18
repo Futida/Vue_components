@@ -46,7 +46,7 @@
                  :data="item"
                  :index="item['.key']"
                  :key="item['.key']"
-                 :date="date()"
+                 :date="date"
                  @totalReplyCommentsLength="replyCommentsLength"
                  @deleteComment="deleteComment"
                  @updateRating="updateRating">
@@ -64,6 +64,7 @@
   import db from '../firebase'
 
   let commentsRef = db.ref('comments');
+  let commentsRefReply = db.ref('reply');
 
   export default {
 
@@ -122,13 +123,16 @@
         this.comments.sort(compareDown)
       },
       date() {
-        let date = new Date();
-        let time = date.toLocaleString();
-        return time;
+        let time = new Date().toLocaleString();
+        return time
 
       },
-      deleteComment(item) {
+      deleteComment(item, filterAnswer) {
         commentsRef.child(item['.key']).remove();
+        filterAnswer.forEach(item => {
+          commentsRefReply.child(item['.key']).remove();
+        })
+
       },
       updateRating(item) {
         commentsRef.child(item['.key']).update({ rating: item.rating })

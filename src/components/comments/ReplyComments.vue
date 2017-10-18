@@ -2,7 +2,7 @@
   <div>
     <div class="panel panel-info">
       <div class="panel-heading">
-        <span class="pull-right">{{ date }}</span>
+        <span class="pull-right">{{ replyComment.date }}</span>
         Answer №: {{ replyComment.ref }}
       </div>
       <div class="panel-body">

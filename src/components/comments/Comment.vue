@@ -26,10 +26,9 @@
         </div>
       </div>
     </div>
-    <ReplyComments :replyComment="el"
-                   v-for="el in filterReply"
-                   :key="index"
-                   :date="date">
+    <ReplyComments v-for="el in filterReply"
+                   :replyComment="el"
+                   :key="index">
     </ReplyComments>
 
     <transition name="modalReply">
@@ -70,9 +69,6 @@
     components: { ReplyComments },
     firebase: { reply: commentsRef },
     props: ['data', 'index', 'date'],
-    mounted() {
-      console.log(this.index);
-    },
     data() {
       return {
         flag: false,
@@ -80,15 +76,16 @@
 //        date: this.date(),
         replyComment: {
           comment: '',
-          ref: ''
+          ref: '',
+          date:''
         },
-        filterAnswer:[]
+        filterAnswer: []
       }
     },
     methods: {
       deleteComment: function() {
-        console.log(this.data);
-        this.$emit('deleteComment', this.data)
+        this.$emit('deleteComment', this.data, this.filterAnswer);
+        this.$emit('totalReplyCommentsLength', this.reply.length);
       },
       showReplyModal: function() {
         this.flag = true;
@@ -104,6 +101,7 @@
         console.log(this.index);
         if (this.replyComment.comment && this.replyComment.comment.length) {
           this.replyComment.ref = this.index;
+          this.replyComment.date = this.date();
           commentsRef.push(this.replyComment);
         }
         this.$emit('totalReplyCommentsLength', this.reply.length);

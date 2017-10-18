@@ -100,7 +100,7 @@
   }
 }
 
-.modalReply-footer{
+.modalReply-footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -128,6 +128,12 @@
 .modalReply-leave-active .modalReply-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+.delete-icon {
+  &:hover {
+    cursor: pointer
+  }
 }
 
 
