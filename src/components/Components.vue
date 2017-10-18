@@ -31,6 +31,9 @@
         </tr>
       </table>
     </div>
+    <p>
+      <Render></Render>
+    </p>
   </div>
 </template>
 
@@ -40,9 +43,10 @@
   import Timer from './Timer.vue'
   import Selection from './Selection.vue'
   import Datepicker from 'vuejs-datepicker'
+  import Render from './Render.vue'
 
   export default {
-    components: { Tree, Timer, Selection, Datepicker },
+    components: { Tree, Timer, Selection, Datepicker, Render },
     mounted() {
       this.createTable();
     },
@@ -150,3 +154,6 @@
 
 
 </style>
+
+
+

@@ -3,10 +3,10 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         <span class="pull-right">{{ date }}</span>
-        Answer №: {{ replyComment.id }}
+        Answer №: {{ replyComment.ref }}
       </div>
       <div class="panel-body">
-        {{ replyComment.replyComment }}
+        {{ replyComment.comment }}
       </div>
     </div>
   </div>

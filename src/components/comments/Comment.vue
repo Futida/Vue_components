@@ -26,7 +26,11 @@
         </div>
       </div>
     </div>
-    <ReplyComments :replyComment="el" v-for="(el,key) in replyComments" :key="key" :date="date"></ReplyComments>
+    <ReplyComments :replyComment="el"
+                   v-for="el in filterReply"
+                   :key="index"
+                   :date="date">
+    </ReplyComments>
 
     <transition name="modalReply">
       <div class="modalReply-mask" v-show="flag" @keyup.esc="closeReplyModal">
@@ -38,7 +42,7 @@
                     style="cursor: pointer"></span>
             </div>
             <div class="modalReply-body">
-              <textarea ref='ta' id="1" cols="50" rows="10" v-model="replyComment"></textarea>
+              <textarea ref='ta' id="1" cols="50" rows="10" v-model="replyComment.comment"></textarea>
             </div>
             <div class="modalReply-footer">
               <slot name="footer">
@@ -55,24 +59,35 @@
 </template>
 
 <script>
-
+  import Vue from 'vue'
   import ReplyComments from './ReplyComments.vue'
+  import db from '../../firebase'
+
+  let commentsRef = db.ref('reply');
 
   export default {
+
     components: { ReplyComments },
+    firebase: { reply: commentsRef },
     props: ['data', 'index', 'date'],
+    mounted() {
+      console.log(this.index);
+    },
     data() {
       return {
         flag: false,
+        reply: [],
 //        date: this.date(),
-        replyComment: '',
-        replyComments: [],
-        id: 1
+        replyComment: {
+          comment: '',
+          ref: ''
+        },
+        filterAnswer:[]
       }
     },
-
     methods: {
       deleteComment: function() {
+        console.log(this.data);
         this.$emit('deleteComment', this.data)
       },
       showReplyModal: function() {
@@ -86,12 +101,14 @@
         this.flag = false
       },
       addReplyComment: function() {
-        if (this.replyComment && this.replyComment.length) {
-          this.replyComments.push({ id: this.id++, replyComment: this.replyComment })
+        console.log(this.index);
+        if (this.replyComment.comment && this.replyComment.comment.length) {
+          this.replyComment.ref = this.index;
+          commentsRef.push(this.replyComment);
         }
-        this.$emit('totalReplyCommentsLength', this.replyComments.length);
+        this.$emit('totalReplyCommentsLength', this.reply.length);
         this.closeReplyModal();
-        this.replyComment = ''
+        this.replyComment.comment = '';
       },
       upRating: function() {
         this.data.rating++;
@@ -100,6 +117,14 @@
       downRating: function() {
         this.data.rating--;
         this.$emit('updateRating', this.data)
+      }
+    },
+    computed: {
+      filterReply() {
+        this.filterAnswer = this.reply.filter(item => {
+          return item['ref'] === this.index
+        });
+        return this.filterAnswer;
       }
     }
   }
