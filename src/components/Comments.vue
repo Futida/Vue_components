@@ -109,7 +109,6 @@
           if (a.rating > b.rating)
             return 1;
         }
-
         this.comments.sort(compareUp)
       },
       sortByRatingDown: function() {
@@ -119,7 +118,6 @@
           if (a.rating < b.rating)
             return 1;
         }
-
         this.comments.sort(compareDown)
       },
       date() {
