@@ -22,7 +22,7 @@
                 Total comments: {{ comments.length }}
               </div>
               <div style="padding-left: 15px">
-                Total answers: {{ totalReplyCommentsLength }}
+                Total answers: {{ reply.length }}
               </div>
             </div>
             <div class="sort">
@@ -47,7 +47,6 @@
                  :index="item['.key']"
                  :key="item['.key']"
                  :date="date"
-                 @totalReplyCommentsLength="replyCommentsLength"
                  @deleteComment="deleteComment"
                  @updateRating="updateRating">
         </Comment>
@@ -69,14 +68,15 @@
   export default {
 
     components: { Comment },
-    firebase: { comments: commentsRef },
+    firebase: { comments: commentsRef, reply: commentsRefReply },
+
     data() {
       return {
         newComment: {
           comment: '',
           rating: 0,
         },
-        totalReplyCommentsLength: 0,
+        totalReplyCommentsLength: '',
         finding: ''
       }
     },
@@ -99,9 +99,6 @@
         }
         this.newComment.comment = '';
       },
-      replyCommentsLength: function(length) {
-        this.totalReplyCommentsLength = length
-      },
       sortByRatingUp: function() {
         function compareUp(a, b) {
           if (a.rating < b.rating)
@@ -109,6 +106,7 @@
           if (a.rating > b.rating)
             return 1;
         }
+
         this.comments.sort(compareUp)
       },
       sortByRatingDown: function() {
@@ -118,6 +116,7 @@
           if (a.rating < b.rating)
             return 1;
         }
+
         this.comments.sort(compareDown)
       },
       date() {

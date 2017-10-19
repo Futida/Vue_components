@@ -3,7 +3,7 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         <span class="pull-right">{{ replyComment.date }}</span>
-        Answer №: {{ replyComment.ref }}
+        Answer №: {{ index + 1 }}
       </div>
       <div class="panel-body">
         {{ replyComment.comment }}
@@ -14,8 +14,8 @@
 
 <script>
 
-  export default{
-    props: ['replyComment', 'date']
+  export default {
+    props: ['replyComment', 'date', 'index']
   }
 
 </script>
