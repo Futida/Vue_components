@@ -77,7 +77,7 @@
         replyComment: {
           comment: '',
           ref: '',
-          date:''
+          date: ''
         },
         filterAnswer: []
       }

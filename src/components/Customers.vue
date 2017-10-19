@@ -77,9 +77,7 @@
         </div>
       </div>
 
-
       <!--removal alert-->
-
         <v-alert warning value="true" class="alert-success" transition="scale-transition" v-show="flag">
           Успешно удалено
         </v-alert>

@@ -4,8 +4,8 @@
 
 .alert-success {
   position: fixed;
-  top: 14%;
-  left: 70%;
+  top: 1%;
+  right: 1%;
   transition: all .5s ease;
   /*!*background-color: lightgreen;*!*/
   /*display: block;*/
@@ -19,14 +19,17 @@
 /*}*/
 
 .alert-enter {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
   opacity: 0;
 }
 
-.alert-leave-active {
-  opacity: 0;
-  /*transform: translateY(-30px);*/
+.alert-v-enter-to .alert-v-leave{
   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.alert-leave-to {
+  /*transform: translateY(-30px);*/
+
+  opacity: 0;
 }
 
 .bounce-enter-active {
