@@ -24,7 +24,7 @@
   export default {
     props: ['deadLine'],
     created() {
-      this.interval = window.setInterval(this.getData, 1000);
+      this.interval = window.setInterval(this.dateNow, 1000);
     },
     watch: {
       'seconds': function() {
@@ -42,28 +42,24 @@
         daysTitles: ['дней', 'дня', 'день']
       }
     },
-    methods: {
-      getData() {
-        this.dateNow = new Date() / 1000;
-        this.$emit('getSeconds', this.seconds);
-      }
-    },
     computed: {
+      getDateNow() {
+        return Math.trunc(new Date(this.deadLine.y, this.deadLine.m, this.deadLine.d, this.deadLine.h, this.deadLine.min));
+      },
       seconds() {
-        let sec = Math.trunc(((new Date(this.deadLine.y, this.deadLine.m, this.deadLine.d, this.deadLine.h, this.deadLine.min) / 1000 - this.dateNow) % 60));
+        let sec = (((this.getDateNow / 1000 - this.dateNow) % 60));
         return sec;
       },
       minutes() {
-        let min = Math.trunc((((new Date(this.deadLine.y, this.deadLine.m, this.deadLine.d, this.deadLine.h, this.deadLine.min) / 1000 - this.dateNow) / 60) % 60));
+        let min = Math.trunc((((this.getDateNow / 1000 - this.dateNow) / 60) % 60));
         return min < 10 ? '0' + min : min;
       },
       hours() {
-        let h = Math.trunc((((new Date(this.deadLine.y, this.deadLine.m, this.deadLine.d, this.deadLine.h, this.deadLine.min) / 1000 - this.dateNow) / 60 / 60) % 24));
-
+        let h = Math.trunc((((this.getDateNow / 1000 - this.dateNow) / 60 / 60) % 24));
         return h < 10 ? '0' + h : h;
       },
       days() {
-        return Math.trunc(((new Date(this.deadLine.y, this.deadLine.m, this.deadLine.d, this.deadLine.h, this.deadLine.min) / 1000 - this.dateNow) / 3600 / 24))
+        return Math.trunc(((this.getDateNow / 1000 - this.dateNow) / 3600 / 24))
       },
       minTitle() {
         let m = this.minutes % 10;

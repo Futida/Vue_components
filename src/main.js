@@ -4,7 +4,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource'
 import VueFire from 'vuefire'
-import Vuetify  from 'vuetify'
+import Vuetify from 'vuetify'
 import router from './router/index'
 import * as VueGoogleMaps from 'vue2-google-maps'
 
