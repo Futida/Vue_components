@@ -122,7 +122,6 @@
       date() {
         let time = new Date().toLocaleString();
         return time
-
       },
       deleteComment(item, filterAnswer) {
         commentsRef.child(item['.key']).remove();
@@ -226,6 +225,9 @@
   //  }
 
   // import Comment from './comments/Comment.vue'
+
+
+
 
 </script>
 

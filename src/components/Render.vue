@@ -1,5 +1,4 @@
 <script>
-
   export default {
     render: function(createElement) {
       let foo = function() {
