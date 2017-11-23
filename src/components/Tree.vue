@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding: 15px">
     <ul>
       <li v-for="item in items">
         {{ item.name }}

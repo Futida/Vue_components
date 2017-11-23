@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding: 15px">
     <div>
       <Datepicker language="ru"
                   format="dd.MM.yyyy">
@@ -24,13 +24,12 @@
       </Selection>
     </div>
     <h3>Table</h3>
-    <div>
+    <div>§
       <table>
         <tr v-for="(row,index) in arr">
-          <td v-for="(col,i) in row">
+          <td v-for="(col,i) in row" style="position: relative">
+            <span style="position: absolute"> {{ (i === 0 && index !== 0 ? index : '') || (col.value) }}</span>
             <input type="text" :rowIndex="index" :colIndex="i" @keyup.enter="saveData">
-            {{ i === 0 && index !== 0 ? index : '' }}
-            <span>{{ col.value }}</span>
           </td>
         </tr>
       </table>
