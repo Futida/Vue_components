@@ -1,3 +1,4 @@
+
 <template>
   <div style="padding: 15px">
     <ul>
@@ -17,7 +18,7 @@
     name: 'Tree',
     props: ['items'],
     created() {
-      console.log(this.model)
+//      console.log(this.model)
     },
     data() {
       return {

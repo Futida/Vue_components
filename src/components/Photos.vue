@@ -86,7 +86,7 @@
           this.photos = response.data;
           this.totalPhotos = parseInt(response.headers.get('x-total'));
           this.currentPage = page;
-        }, console.log)
+        }, console.log())
       },
 
       showModal: function(photo) {

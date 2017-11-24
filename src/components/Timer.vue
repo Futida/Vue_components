@@ -2,19 +2,23 @@
   <div>
     <div class="timer-container" v-if="seconds >= 0">
       <div>
-        <span>до завершения</span>
+        <span>{{ title }}</span>
       </div>
       <div>
-        <span>{{ days }}</span> <span v-if="displayTitles">{{ daysTitle }}</span>
+        <span>{{ days }}</span>
+        <span v-if="displayTitles">{{ daysTitle }}</span>
       </div>
       <div>
-        <span>{{ hours }}</span> <span v-if="displayTitles">{{ hoursTitle }}</span>
+        <span>{{ hours }}</span>
+        <span v-if="displayTitles">{{ hoursTitle }}</span>
       </div>
       <div>
-        <span>{{ minutes }}</span> <span v-if="displayTitles">{{ minTitle }}</span>
+        <span>{{ minutes }}</span>
+        <span v-if="displayTitles">{{ minTitle }}</span>
       </div>
       <div>
-        <span>{{ seconds }}</span> <span v-if="displayTitles">{{ secTitle }}</span>
+        <span>{{ seconds }}</span>
+        <span v-if="displayTitles">{{ secTitle }}</span>
       </div>
     </div>
     <div v-else>
@@ -25,7 +29,20 @@
 
 <script>
   export default {
-    props: ['deadLine', 'displayTitles'],
+    props: {
+      deadLine: {
+        type: Object
+      },
+      displayTitles: {
+        type: Boolean,
+        default: false
+      },
+      title: {
+        type: String,
+        default: 'до ...'
+      }
+    },
+
     mounted() {
       this.interval = window.setInterval(() => {
         this.dateNow = Math.trunc(new Date() / 1000)

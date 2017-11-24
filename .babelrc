@@ -1,14 +1,31 @@
 {
   "presets": [
-    ["env", { "modules": false }],
+    "flow",
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
     "stage-2"
   ],
-  "plugins": ["transform-runtime", "transform-decorators-legacy"],
+  "plugins": [
+    "transform-runtime",
+    "transform-decorators-legacy",
+    "babel-plugin-transform-class-properties",
+    "babel-plugin-syntax-flow",
+    "babel-plugin-transform-flow-strip-types"
+  ],
   "comments": false,
   "env": {
     "test": {
-      "presets": ["env", "stage-2"],
-      "plugins": [ "istanbul" ]
+      "presets": [
+        "env",
+        "stage-2"
+      ],
+      "plugins": [
+        "istanbul"
+      ]
     }
   }
 }
