@@ -8,7 +8,7 @@
       </Pagination>
       <div class="container-fluid">
         <div class="grid">
-          <div class="grid__item card" v-for='(photo, key) in photos'>
+          <div class="grid__item card" v-for='(photo, key) in photos' :key="key">
             <div class="card__body">
               <img :src="photo.urls.small" alt="" @click="showModal(photo)">
             </div>
@@ -24,9 +24,11 @@
               </span>
               <Maps
                 v-if="photo.user.location"
+                :key="key"
                 :userLocation="photo.user.location">
               </Maps>
-              <div v-else style="margin-left: 215px; margin-top: 130px;">
+              <div v-else
+                   style="display: flex; align-items: center;justify-content: center;align-content: center; margin-top: 144px;">
                 No data
               </div>
             </div>
@@ -44,7 +46,7 @@
         <div class="modal" v-show="flag">
           <div class="modal-content">
             <img :src='path_to_largeImg' alt="" id="imgFull">
-            <span class="close" @click="hideModal">X</span>
+            <span @click="hideModal">X</span>
           </div>
         </div>
       </transition>

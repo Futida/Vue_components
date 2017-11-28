@@ -7,9 +7,12 @@ import db from '../firebase'
 let commentsRef = db.ref('comments');
 let commentsRefReply = db.ref('reply');
 
-@Component({})
+@Component({
+  components: { Comment },
+  firebase: { comments: commentsRef, reply: commentsRefReply }
+})
 
-export class Comments extends Vue {
+export default class Comments extends Vue {
 
   newComment = {
     comment: '',
@@ -19,20 +22,20 @@ export class Comments extends Vue {
   finding = '';
 
 
-  static bar(arr: Array<number>, prop: number) {
-    let conf: number = prop;
-    arr.push(conf);
-    console.log(arr);
-  }
-
-  doSomethingStupid(param1: number) {
-
-    console.log(5 * param1);
-    let conf: string = "haha";
-    // Flow should show an error here, "The operand of an arithmetic operation must be a number."
-    // console.log(param)
-    Comments.bar([1, 2, 3], conf);
-  }
+  // static bar(arr: Array<number>, prop: number) {
+  //   let conf: number = prop;
+  //   arr.push(conf);
+  //   console.log(arr);
+  // }
+  //
+  // doSomethingStupid(param1: number) {
+  //
+  //   console.log(5 * param1);
+  //   let conf: string = "haha";
+  //   // Flow should show an error here, "The operand of an arithmetic operation must be a number."
+  //   // console.log(param)
+  //   Comments.bar([1, 3], 2)
+  // }
 
   get searching(): Array<any> {
     let commentsList = this.comments;
@@ -46,63 +49,45 @@ export class Comments extends Vue {
 
   addComment() {
     if (this.newComment.comment && this.newComment.comment.length) {
-      this.newComment.date = this.date();
+      this.newComment.date = this.date;
       commentsRef.push(this.newComment);
     }
     this.newComment.comment = '';
   };
 
-  static deleteComment(item) {
+  deleteComment(item: Object, filterAnswer: Object) {
     commentsRef.child(item['.key']).remove();
+    filterAnswer.forEach(item => {
+      commentsRefReply.child(item['.key']).remove();
+    })
   }
 
-  static updateRating(item) {
+  updateRating(item: Object) {
     commentsRef.child(item['.key']).update({ rating: item.rating })
   }
 
-  replyCommentsLength(length) {
+  replyCommentsLength(length: number) {
     this.totalReplyCommentsLength = length
   };
 
   sortByRatingUp() {
     function compareUp(a, b) {
-      if (a.rating < b.rating)
-        return -1;
-      if (a.rating > b.rating)
-        return 1;
+      return (a.rating === b.rating ? 0 : a.rating < b.rating ? -1 : 1)
     }
 
     this.comments.sort(compareUp)
-  }
-  ;
+  };
 
   sortByRatingDown() {
     function compareDown(a, b) {
-      if (a.rating > b.rating)
-        return -1;
-      if (a.rating < b.rating)
-        return 1;
+      return (a.rating === b.rating ? 0 : a.rating > b.rating ? -1 : 1);
     }
 
     this.comments.sort(compareDown)
-  }
-  ;
+  };
 
-  static date() {
+  get date(): string {
     let date = new Date();
-    let time = date.toLocaleString();
-    return time;
-//      let year = date.getFullYear();
-//      let month = getMonth();
-//      let day = date.getDate();
-    // var fullData = year + " " + month + " " + day + " " + time;
-
-//      function getMonth() {
-//        let month = date.getMonth();
-//        if (month < 10) {
-//          let m = "0" + month
-//        }
-//        return m;
-//      }
+    return date.toLocaleString();
   }
 }

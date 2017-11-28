@@ -11,3 +11,5 @@ src
 module.file_ext=.vue
 module.file_ext=.js
 unsafe.enable_getters_and_setters=true
+esproposal.decorators=ignore
+include_warnings=true

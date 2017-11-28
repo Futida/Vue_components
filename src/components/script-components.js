@@ -52,8 +52,7 @@ export default {
       console.log(5 * param1);
       let conf: string = "haha";
       // Flow should show an error here, "The operand of an arithmetic operation must be a number."
-      // console.log(param)
-      this.bar(1,2)
+      this.bar([1],2)
     },
     bar: function(arr: Array<number>, prop: number) {
       let conf: number = prop;

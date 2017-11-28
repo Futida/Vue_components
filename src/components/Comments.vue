@@ -55,95 +55,84 @@
   </div>
 </template>
 
-<script>
+<script src="./script-comments.js">
 
-  import Vue from 'vue'
-  //  import Component from 'vue-class-component'
-  import Comment from './comments/Comment.vue'
-  import db from '../firebase'
-
-  let commentsRef = db.ref('comments');
-  let commentsRefReply = db.ref('reply');
-
-  export default {
-
-    components: { Comment },
-    firebase: { comments: commentsRef, reply: commentsRefReply },
-
-    data() {
-      return {
-        newComment: {
-          comment: '',
-          rating: 0,
-        },
-        totalReplyCommentsLength: '',
-        finding: ''
-      }
-    },
-    computed: {
-      searching() {
-        let comments = this.comments;
-        if (this.finding) {
-          comments = comments.filter(item => {
-            return item.comment.toLowerCase().indexOf(this.finding) > -1
-          })
-        }
-        return comments;
-      }
-    },
-    methods: {
-      addComment() {
-        if (this.newComment.comment && this.newComment.comment.length) {
-          this.newComment.date = this.date();
-          commentsRef.push(this.newComment);
-        }
-        this.newComment.comment = '';
-      },
-      sortByRatingUp: function() {
-        function compareUp(a, b) {
-          if (a.rating < b.rating)
-            return -1;
-          if (a.rating > b.rating)
-            return 1;
-        }
-
-        this.comments.sort(compareUp)
-      },
-      sortByRatingDown: function() {
-        function compareDown(a, b) {
-          if (a.rating > b.rating)
-            return -1;
-          if (a.rating < b.rating)
-            return 1;
-        }
-
-        this.comments.sort(compareDown)
-      },
-      date() {
-        let time = new Date().toLocaleString();
-        return time
-      },
-      deleteComment(item, filterAnswer) {
-        commentsRef.child(item['.key']).remove();
-        filterAnswer.forEach(item => {
-          commentsRefReply.child(item['.key']).remove();
-        })
-
-      },
-      updateRating(item) {
-        commentsRef.child(item['.key']).update({ rating: item.rating })
-      }
-    }
-  }
-
-
-
-
-  // import Comment from './comments/Comment.vue'
-
-
-
-
+  //  import Comment from './comments/Comment.vue'
+  //  import db from '../firebase'
+  //
+  //  let commentsRef = db.ref('comments');
+  //  let commentsRefReply = db.ref('reply');
+  //
+  //  export default {
+  //
+  //    components: { Comment },
+  //    firebase: { comments: commentsRef, reply: commentsRefReply },
+  //
+  //    data() {
+  //      return {
+  //        newComment: {
+  //          comment: '',
+  //          rating: 0,
+  //        },
+  //        totalReplyCommentsLength: '',
+  //        finding: ''
+  //      }
+  //    },
+  //    computed: {
+  //      searching() {
+  //        let comments = this.comments;
+  //        if (this.finding) {
+  //          comments = comments.filter(item => {
+  //            return item.comment.toLowerCase().indexOf(this.finding) > -1
+  //          })
+  //        }
+  //        return comments;
+  //      }
+  //    },
+  //    methods: {
+  //      addComment() {
+  //        if (this.newComment.comment && this.newComment.comment.length) {
+  //          this.newComment.date = this.date();
+  //          commentsRef.push(this.newComment);
+  //        }
+  //        this.newComment.comment = '';
+  //      },
+  //      sortByRatingUp: function() {
+  //        function compareUp(a, b) {
+  //          if (a.rating < b.rating)
+  //            return -1;
+  //          if (a.rating > b.rating)
+  //            return 1;
+  //        }
+  //
+  //        this.comments.sort(compareUp)
+  //      },
+  //      sortByRatingDown: function() {
+  //        function compareDown(a, b) {
+  //          if (a.rating > b.rating)
+  //            return -1;
+  //          if (a.rating < b.rating)
+  //            return 1;
+  //        }
+  //
+  //        this.comments.sort(compareDown)
+  //      },
+  //      date() {
+  //        let time = new Date().toLocaleString();
+  //        return time
+  //      },
+  //      deleteComment(item, filterAnswer) {
+  //        commentsRef.child(item['.key']).remove();
+  //        filterAnswer.forEach(item => {
+  //          commentsRefReply.child(item['.key']).remove();
+  //        })
+  //
+  //      },
+  //      updateRating(item) {
+  //        commentsRef.child(item['.key']).update({ rating: item.rating })
+  //      }
+  //    }
+  //  }
 </script>
 
 <style lang="scss" src="../css/comments.scss"></style>

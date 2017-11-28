@@ -58,75 +58,75 @@
   </div>
 </template>
 
-<script>
-  import Vue from 'vue'
-  import ReplyComments from './ReplyComments.vue'
-  import db from '../../firebase'
-
-  let commentsRef = db.ref('reply');
-
-  export default {
-
-    components: { ReplyComments },
-    firebase: { reply: commentsRef },
-    props: ['data', 'index', 'date'],
-
-    data() {
-      return {
-        flag: false,
-        reply: [],
-//        date: this.date(),
-        replyComment: {
-          comment: '',
-          ref: '',
-          date: '',
-        },
-        filterAnswer: []
-      }
-    },
-    methods: {
-      deleteComment: function() {
-        this.$emit('deleteComment', this.data, this.filterAnswer);
-        this.$emit('totalReplyCommentsLength', this.reply.length);
-      },
-      showReplyModal: function() {
-        this.flag = true;
-        setTimeout(() => {
-          this.$refs.ta.focus();
-        }, 0);
-
-      },
-      closeReplyModal: function() {
-        this.flag = false
-      },
-      addReplyComment: function() {
-        console.log(this.index);
-        if (this.replyComment.comment && this.replyComment.comment.length) {
-          this.replyComment.ref = this.index;
-          this.replyComment.date = this.date();
-          commentsRef.push(this.replyComment);
-        }
-        this.closeReplyModal();
-        this.replyComment.comment = '';
-      },
-      upRating: function() {
-        this.data.rating++;
-        this.$emit('updateRating', this.data)
-      },
-      downRating: function() {
-        this.data.rating--;
-        this.$emit('updateRating', this.data)
-      }
-    },
-    computed: {
-      filterReply() {
-        this.filterAnswer = this.reply.filter(item => {
-          return item['ref'] === this.index
-        });
-        return this.filterAnswer;
-      }
-    }
-  }
+<script src="./script-comment.js">
+//  import Vue from 'vue'
+//  import ReplyComments from './ReplyComments.vue'
+//  import db from '../../firebase'
+//
+//  let commentsRef = db.ref('reply');
+//
+//  export default {
+//
+//    components: { ReplyComments },
+//    firebase: { reply: commentsRef },
+//    props: ['data', 'index', 'date'],
+//
+//    data() {
+//      return {
+//        flag: false,
+//        reply: [],
+////        date: this.date(),
+//        replyComment: {
+//          comment: '',
+//          ref: '',
+//          date: '',
+//        },
+//        filterAnswer: []
+//      }
+//    },
+//    methods: {
+//      deleteComment: function() {
+//        this.$emit('deleteComment', this.data, this.filterAnswer);
+//        this.$emit('totalReplyCommentsLength', this.reply.length);
+//      },
+//      showReplyModal: function() {
+//        this.flag = true;
+//        setTimeout(() => {
+//          this.$refs.ta.focus();
+//        }, 0);
+//
+//      },
+//      closeReplyModal: function() {
+//        this.flag = false
+//      },
+//      addReplyComment: function() {
+//        console.log(this.index);
+//        if (this.replyComment.comment && this.replyComment.comment.length) {
+//          this.replyComment.ref = this.index;
+//          this.replyComment.date = this.date;
+//          commentsRef.push(this.replyComment);
+//        }
+//        this.closeReplyModal();
+//        this.replyComment.comment = '';
+//      },
+//      upRating: function() {
+//        this.data.rating++;
+//        this.$emit('updateRating', this.data)
+//      },
+//      downRating: function() {
+//        this.data.rating--;
+//        this.$emit('updateRating', this.data)
+//      }
+//    },
+//    computed: {
+//      filterReply() {
+//        this.filterAnswer = this.reply.filter(item => {
+//          return item['ref'] === this.index
+//        });
+//        return this.filterAnswer;
+//      }
+//    }
+//  }
 
 </script>
 
