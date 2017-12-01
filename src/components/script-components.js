@@ -52,7 +52,7 @@ export default {
       console.log(5 * param1);
       let conf: string = "haha";
       // Flow should show an error here, "The operand of an arithmetic operation must be a number."
-      this.bar([1],2)
+      this.bar(1, 2)
     },
     bar: function(arr: Array<number>, prop: number) {
       let conf: number = prop;
@@ -65,7 +65,7 @@ export default {
         arr[k] = new Array(10);
       }
     },
-    saveData(e: any) {
+    saveData(e: Object) {
       let el = e.target,
         rowIndex = el.getAttribute('rowIndex'),
         colIndex = el.getAttribute('colIndex');
@@ -221,3 +221,192 @@ export default {
 //  }
 //  console.log(arrResult);
 
+//------------------------//
+// function greet() {
+//   return {name:'Kostya'}
+// }
+//
+// function foo() {
+//   return new Promise(function(resolve, reject) {
+//     if (!greet()) {
+//       reject(new Error("не удалось выполнить..."));
+//     }
+//     return resolve(greet())
+//   })
+// }
+//
+// foo()
+//   .then((res) => {
+//     console.log(res);
+//   });
+//--------------------//
+// var arr = [1,2,3];
+// function display(item) {
+//   console.log(item);
+// }
+// function foo(arr) {
+//   var n = arr.shift();
+//   if(!n)return;
+//   display(n);
+//   return foo(arr)
+// }
+// foo(arr)
+
+// for (var i = 0; i < 100; i++){
+//   var result = '';
+//   if(i % 3 ===0){
+//     result += 'Buzz'
+//   }
+//   else if(i % 5 === 0){
+//     result += 'Fizz'
+//   }
+//    console.log(result || i)
+// }
+//
+// var items = [
+//   'b-statcounter',
+//   'b-statcounter__metrika',
+//   'b-statcounter__metrika_type_js',
+//   'i-bem',
+//   'b-search__table',
+//   'b-form-input',
+//   'b-form-input_theme_grey',
+//   'b-form-input_size_l',
+//   'i-bem',
+//   'b-form-input__input',
+//   'b-search__button',
+//   'b-form-button__content',
+//   'b-form-button__text',
+//   'b-form-button__input',
+//   'i-bem',
+//   'b-main-menu',
+//   'b-main-menu__tab',
+//   'b-main-menu__tab',
+//   'b-main-menu__tab',
+//   'b-main-menu__tab',
+//   'b-main-menu__tab_type_selected',
+//   'b-main-menu__tab',
+//   'b-main-menu__tab_type_selected',
+//   'l-page__right',
+//   'b-static-text',
+//   'b-static-text',
+//   'b-foot__layout-column',
+//   'b-foot__layout-column_type_left',
+//   'b-link',
+//   'b-foot__link',
+//   'b-foot__layout-column',
+//   'b-foot__layout-column',
+//   'b-foot__layout-column_type_center',
+//   'b-link',
+//   'b-foot__link',
+//   'b-foot__layout-column',
+//   'b-foot__layout-column_type_penultima',
+//   'b-link',
+//   'b-foot__link',
+//   'b-foot__layout-column',
+//   'b-foot__layout-column_type_right',
+//   'b-copyright__link',
+//   'b-foot__layout-gap-i'
+// ];
+//
+// var title = Array.from(new Set(items));
+// var arrMatch = [];
+//
+// function foo(items) {
+//   var MatchObj = {};
+//   var n = title.shift();
+//   if (!n) return false;
+//
+//   var counter = 0;
+//   for (var i = 0; i < items.length; i++) {
+//     if (n === items[i]) {
+//       counter++
+//     }
+//     MatchObj['title'] = n;
+//     MatchObj['match'] = counter;
+//   }
+//   arrMatch.push(MatchObj);
+//   foo(items);
+// }
+//
+// foo(items);
+//
+// function compareMatch(a, b) {
+//   return b.match - a.match
+// }
+//
+// function addWord(arr1) {
+//   var arr3 = [];
+//   arr3 = arr1.map(function(item) {
+//     return (item + item)
+//   });
+//   return arr3
+// }
+//
+// arrMatch.sort(compareMatch);
+//
+// var words = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+// 'v', 'w', 'x', 'y', 'z'];
+// var temp = [];
+// var counter = 1;
+//
+// function setAliases(arrWords) {
+//   console.log(arrWords);
+//   console.log('init');
+//   counter++;
+//   for (var i = 0; i < arrMatch.length; i++) {
+//     if (i >= 26) {
+//       temp = addWord(words);
+//       words = words.concat(temp);
+//       temp = '';
+//       console.log(words);
+//     }
+//     var item = arrMatch[i];
+//     for (var key in item) {
+//       item['title'] = arrWords[i];
+//     }
+//   }
+//   console.log(counter);
+//   if(counter === 4){
+//     return
+//   }
+//   setAliases(arrWords);
+// }
+//
+//
+// setAliases(words);
+// console.log(arrMatch);
+//
+//
+// function foo(arr2) {
+//   for (var i = 0; i < arr2.length; i++) {
+//     if (i === 2) {
+//       words = addWord(arr2);
+//     }
+//     if (arr2[i] === 'zzz') {
+//       return
+//     }
+//   }
+//   foo(words)
+// }
+//
+// function helper(e) {
+//   console.log(e)
+// }
+//
+// var manager = function() {
+//   this.emit('loaded');
+// };
+//
+// function foo(layout) {
+//   if (layout) {
+//     manager.emit('loaded')
+//   }
+// }
+//
+//
+// manager.trigger("loaded", function(event) {
+//   helper(event);
+// });
+//
+// foo(true);

@@ -14,28 +14,28 @@ let commentsRefReply = db.ref('reply');
 
 export default class Comments extends Vue {
 
-  newComment = {
+  newComment: Object = {
     comment: '',
     rating: 0,
   };
-  totalReplyCommentsLength = 0;
+  totalReplyCommentsLength: number = 0;
   finding = '';
 
 
-  // static bar(arr: Array<number>, prop: number) {
-  //   let conf: number = prop;
-  //   arr.push(conf);
-  //   console.log(arr);
-  // }
-  //
-  // doSomethingStupid(param1: number) {
-  //
-  //   console.log(5 * param1);
-  //   let conf: string = "haha";
-  //   // Flow should show an error here, "The operand of an arithmetic operation must be a number."
-  //   // console.log(param)
-  //   Comments.bar([1, 3], 2)
-  // }
+  static bar(arr: Array<number>, prop: number) {
+    let conf: number = prop;
+    arr.push(conf);
+    console.log(arr);
+  }
+
+  doSomethingStupid(param1: number) {
+
+    console.log(5 * param1);
+    let conf: string = "haha";
+    // Flow should show an error here, "The operand of an arithmetic operation must be a number."
+    // console.log(param)
+    Comments.bar([3], 2)
+  }
 
   get searching(): Array<any> {
     let commentsList = this.comments;
@@ -65,10 +65,6 @@ export default class Comments extends Vue {
   updateRating(item: Object) {
     commentsRef.child(item['.key']).update({ rating: item.rating })
   }
-
-  replyCommentsLength(length: number) {
-    this.totalReplyCommentsLength = length
-  };
 
   sortByRatingUp() {
     function compareUp(a, b) {
